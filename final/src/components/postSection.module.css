@@ -1,0 +1,17 @@
+.container{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:0.3rem ;
+    
+}
+.title{
+    font-size: 30px;
+    margin-bottom: 30px;
+    color:#44212b;}

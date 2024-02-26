@@ -1,13 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Merriweather", serif;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root {
+  --blue-color:#00FF00;
+  --brown-color: #007FFF;
+
+  --aswad-behit:#333333;
+  --textkhli-color:#3A3B79;
+  --main-blue: #BAC0FA;
+  ;
+  --main-bege : #F5F5DC;
+  --main-vert: #A2D9A8;
+
+  --border-radius: 50%;
+  --margin-LR: 8rem;
+}
+.root {
+  --main-grey : #D3D3D3
+  --brun:#44212b;
+  --bege-game2:
+  --bege-fetih: #C9B0A6;
+  --move:#573857;
+  --asfar:#d4a113;
+  --bege-ktirfetih: #D8C8C0
 }

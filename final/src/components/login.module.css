@@ -1,0 +1,133 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/photo.jpg);
+    background-size: cover;  
+}
+.content{
+    width: 100%;
+    max-width: 300px;
+    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+    box-shadow: inset -2px 2px 2px white;
+    backdrop-filter: blur(15px);
+    
+}
+.title{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: 1px solid white;
+    
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    
+    padding: 20px 0;
+}
+    .box:nth-child(2n){
+        justify-content: end;
+    
+    }
+    .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content horizontally */
+        width: 100%;
+        padding-bottom: 15px;
+    }
+    
+    .box label {
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 5px 0;
+        text-align: center; /* Center the text horizontally */
+    }
+    
+    .box input {
+        height: 40px;
+        width: 90%;
+        max-width: 300px; /* Limit input width for better readability */
+        border-radius: 7px;
+        outline: none;
+        border: 1px solid grey;
+        padding: 0 10px;
+        margin: 0 auto; /* Center the input horizontally */
+    }
+    .submitt input{
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        margin-top: 40px;
+        color: white;
+        /* background-color:#d4a113 ; */
+        background-color: #C9B0A6;
+        font-size: 26px;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px black;
+        border-bottom: 1px solid white;
+        
+    
+    
+    }
+    
+    .submitt input:hover{
+        color: white;
+        background-color: #573857;
+    }
+
+
+    .toggle {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+    .toggleButton {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+        background-color: #44212b;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px black;
+        border-bottom: 1px solid white;
+        
+    }
+    
+    .toggleButton:hover {
+        background-color: #44212b;    }
+
+
+    @media(max-width:600px){
+        .container{
+            min-width: 200px;
+        }
+        .box{
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        .box:nth-child(2n){
+            justify-content: space-between;
+        
+        }}
+    

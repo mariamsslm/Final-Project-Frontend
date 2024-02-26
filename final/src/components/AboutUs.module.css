@@ -1,0 +1,32 @@
+.aboutUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    
+}
+.imageContainer{
+    display: flex;
+    justify-content: center;
+}
+
+ .aboutUs h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color:#44212b;
+  }
+  .aboutUs p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 800px;
+    color:#44212b ;
+  }
+  .aboutUs .imageContainer img {
+    width: 300px;
+    height: auto;
+    margin: 0 10px;
+  }
+  
+  

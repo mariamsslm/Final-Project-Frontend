@@ -1,0 +1,162 @@
+.hero {
+  position: relative; 
+  background-image: url(../assets/heroo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: absolute; 
+  top: 70%; 
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 6px;
+  color: #d3d3d3;
+  text-shadow: 2px 2px 2px black;
+  z-index: 1; 
+}
+
+.btn {
+  position: absolute;
+  top: 85%; 
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: #c9b0a6;
+  font-size: 26px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px black;
+  border-bottom: 1px solid white;
+  z-index: 1; 
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../assets/heroo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(3px); 
+  z-index: 0
+}
+
+.gallery-container {
+  position: relative;
+  margin-top: 7rem;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-bottom: 7rem;
+  
+  
+}
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%; 
+  height: 100%;
+  margin: 2rem;
+ 
+  
+
+}
+.gallery-item {
+  width: 350px;
+  height: 40vh;
+  padding: 10px;
+  margin: 20px 10px 20px 10px; 
+  
+  box-sizing: border-box;
+  position: relative; 
+
+  
+  border: 20px solid #8b5a2b;
+  /* border-radius: 10px;  */
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: -25px; 
+  right: -25px; 
+  bottom: -25px;
+  border: 5px solid #fff; 
+  /* border-radius: 5px; */
+}
+
+
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.popup-image {
+  width: 700px;
+  height: 60vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 9px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+ 
+  
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.prev {
+  left: 8px;
+
+}
+
+.next {
+  right: 8px;
+}
+.bttun{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+  background-color: #8b5a2b;
+  font-size: 26px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px black;
+  
+}
+.bttun:hover{
+  background-color: #c9b0a6
+}
