@@ -6,11 +6,11 @@ body {
 
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-:root {
+} */
+/* :root {
   --blue-color:#00FF00;
   --brown-color: #007FFF;
 
@@ -23,11 +23,10 @@ code {
 
   --border-radius: 50%;
   --margin-LR: 8rem;
-}
+} */
 .root {
   --main-grey : #D3D3D3
   --brun:#44212b;
-  --bege-game2:
   --bege-fetih: #C9B0A6;
   --move:#573857;
   --asfar:#d4a113;
