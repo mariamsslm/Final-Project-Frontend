@@ -1,0 +1,158 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/item3.jpg);
+    background-size: cover;
+}
+
+.content {
+    width: 100%;
+    max-width: 650px;
+    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+    box-shadow: inset -2px 2px 2px white;
+    backdrop-filter: blur(15px);
+
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: 1px solid white;
+
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.box:nth-child(2n) {
+    justify-content: end;
+
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+
+
+
+.box input {
+    height: 40px;
+    width: 90%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+}
+.box textarea{
+    height: 100px;
+    width: 90%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+}
+
+.btn input{
+    display: inline-block;
+    padding: 13px 40px;
+    background: #ffa343;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all .50s ease;
+    cursor: pointer;
+}
+.btn input:hover{
+    transform: translateX(10px);
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+
+.toggle {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.toggleButton {
+    cursor: pointer;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: #000 3px solid;
+}
+
+.toggleButton:hover {
+    border-bottom:#ffa343  3px solid;  
+ }
+ .return{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #ffa343;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    color: #fff;
+    margin: 10px;
+    transition: all .50s ease;
+    cursor: pointer;
+ }
+ .return:hover{
+    transform: translateX(10px);
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+
+ }
+          
+
+
+
+@media(max-width:600px) {
+    .container {
+        min-width: 280px;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .box:nth-child(2n) {
+        justify-content: space-between;
+
+    }
+
+    .main{
+        max-height: 380px;
+        overflow: auto;
+    } 
+     .main::-webkit-scrollbar{
+        width: 0;
+    }
+}

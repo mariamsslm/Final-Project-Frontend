@@ -1,0 +1,90 @@
+.posts{
+    color: black;
+    padding: 70px 17% 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    background: #ffffffab;
+}
+.text h2{
+    font-size: h2;
+    font-weight: 700;
+    margin: 18px 0px;
+    text-align: center;
+
+}
+/* .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+} */
+.content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+.box img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* margin-bottom: 20px; */
+
+}
+.box{
+    padding: 0 0 20px 0;
+    background: #fff;
+    border-radius: 10px;
+    transition:all ease 0.50s ;
+    
+
+}
+
+.box h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.box p{
+    font-size: 14px;
+    font-weight: 400;
+    
+}
+.details{
+    display: flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 3px 5px 0 5px;
+
+}
+.main{
+    display: flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+.btnProf{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: all ease 0.50s;
+
+}
+.btn{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: all ease 0.50s;
+
+
+}
+.box:hover{
+    transform: scale(1.01) translateY(-5px);
+    cursor: pointer;
+}

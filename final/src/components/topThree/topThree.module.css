@@ -1,0 +1,76 @@
+.top{
+    padding: 90px 17%  60px;
+}
+.text{
+    text-align: center;
+}
+.text h2{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px , auto));
+    align-items: center;
+    gap:3rem;
+    margin-top: 5rem;
+}
+.box{
+    position: relative;
+    width: 400px;
+    height: 50vh;
+   
+
+}
+.box img{
+    width: 100%;
+    height: 100%;
+   
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(70%);
+    transition: all .3s cubic-bezier(.499,.05,.55,.95);
+    will-change: filter;
+    display: block;
+}
+.box h6{
+    position: absolute;
+    left: 25px;
+    bottom: 95px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.box h4{
+    position: absolute;
+    left: 25px;
+    bottom: 65px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.box img:hover{
+    
+    transform: scale(1.04);
+    cursor: pointer;
+}
+@media(max-width:500px){
+
+
+    .top{
+      
+            padding: 45px 5% 35px
+        
+    }
+    .content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px , auto));
+        align-items: center;
+        justify-content: center;
+        gap:1rem;
+        margin-top: 5rem;
+
+    }
+    .box{
+        position: relative;
+        width: 300px;
+        height: 30vh;
+}}

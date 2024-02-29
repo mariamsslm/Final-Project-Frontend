@@ -1,16 +1,19 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-// import Nav from '../components/nav'
-// import Footer from '../components/footer'
-// import TopFive from '../components/topFive'
-// import Hero from '../components/hero'
-// import NavBar from '../layout/navBar'
+
 import Container from '../outlet/layout'
 import HomePage from '../pages/HomePage'
-import Signup from '../components/signup'
-import Login from '../components/login'
-import Photographs from '../pages/Photographs'
-import SmileyFace from '../pages/Drawing'
+import  PostPage from '../pages/posts'
+import Portfolio from '../pages/portfolio'
+import AbouUs from '../pages/AboutUs'
+import Login from '../components/login/login'
+import Signup from '../components/signup/signup'
+import GalleryPage from '../pages/gallery'
+import PostForm from '../components/FormPost/AddPost/addPost'
+import Sidebar from '../pages/dashboard'
+import Overview from '../components/Dashboard/overview/overview'
+import SingleProfile from '../layout/singleProfile/single'
+
 
 function AppRoutes() {
     return(
@@ -18,14 +21,21 @@ function AppRoutes() {
          
         <Route exact path="/" element={<Container />}>
             <Route path='/' element={<HomePage/>} />
-            <Route path='/photo' element={<Photographs/>} />
-            <Route path='/profile' element={"<profile/>"} />
-            <Route path='/draw' element={<SmileyFace/>} />
-            <Route path='/writing' element={"<writing>"} />
-           
+            <Route path='/posts' element={< PostPage/>} />
+            <Route path='/profil' element={<Portfolio/>} />
+            <Route path='/about' element={<AbouUs/>} />
+            <Route path='/gallery' element={<GalleryPage/>} />
         </Route>
+
+        <Route path="/user/:id" element={<SingleProfile/>} />
+
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
+        <Route path='/add' element={<PostForm/>} />
+        <Route path='/dash' element={<Sidebar/>} />
+        <Route path='/a' element={<Overview/>} />
+
+
     </Routes>
     )
 }

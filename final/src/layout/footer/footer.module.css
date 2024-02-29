@@ -1,0 +1,50 @@
+.footer{
+    padding: 90px 10% 60px;
+    display:grid ;
+    grid-template-columns: repeat(auto-fit, minmax(200px,auto));
+    gap: 2rem;
+
+}
+.box{
+    display: flex;
+    flex-direction: column;
+}
+.box h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.box a{
+    color:#979797 ;
+    margin-bottom: 0.8rem;
+    transition: all 0.50s ease;
+}
+.box a:hover{
+    transform: translateX(-5px);
+    color: #fff;
+}
+.social a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    background: #202020;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition:transform 0.6s;
+
+}
+.social a:hover{
+    background: #ffa343;
+    color: #000;
+    transform: translateX(-4px);
+}
+.copy{
+    text-align: center;
+    padding: 20px;
+    color: #979797;
+    font-size: 15px;
+}

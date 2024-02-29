@@ -1,14 +1,16 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
-import Nav from '../layout/nav';
-import Footer from '../layout/footer'
+import Footer from '../layout/footer/footer'
+
+import Navbar from '../components/Navbar/navbar';
 
 function Container() {
   return (
     <div>
-      <Nav/>
-      <Outlet />
-      <Footer />
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
+     
     </div>
   );
 }

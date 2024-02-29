@@ -1,31 +1,23 @@
 import React from 'react'
-import style from '../pages/HomePage.module.css'
-import Hero from '../components/hero';
-// import TopFive from '../components/topFive';
-import  AboutUs from '../components/AboutUs';
-// import Card from '../components/Card'
-import  PostSection from '../components/postSection'
-// import SpeechBubble from '../components/writingsCard'
-import WrittingsSection from '../components/writingSection'
-import TopFive from '../components/topFive'
+import Hero from '../components/heroSection/heroSection';
+import Feature from '../components/feature/feature';
+import SectionOne from '../components/sectionOne/sectionOne';
+import Top from '../components/topThree/topThree';
+import About from '../components/about us/about'
+import ProfileHome from '../components/profileHome/profileHome'
 
-const HomePage =()=>{
+
+
+const HomePage=()=>{
     return(
         <div>
             <Hero/>
-            <div className={style.container}>
-            <div className={style.content} >
-            
-            <TopFive/>
-            <PostSection/>
-            <AboutUs/>
-            {/* <SpeechBubble/> */}
-            <WrittingsSection/>
-
-            </div>
-            </div>
+            <Feature/>
+            <SectionOne/>
+            <Top/>
+            <About/>
+            <ProfileHome/>
         </div>
-
     )
 }
 export default HomePage;

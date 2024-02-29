@@ -1,34 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: "Merriweather", serif;
-
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+body{
+  background: #000;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-/* :root {
-  --blue-color:#00FF00;
-  --brown-color: #007FFF;
-
-  --aswad-behit:#333333;
-  --textkhli-color:#3A3B79;
-  --main-blue: #BAC0FA;
-  ;
-  --main-bege : #F5F5DC;
-  --main-vert: #A2D9A8;
-
-  --border-radius: 50%;
-  --margin-LR: 8rem;
-} */
-.root {
-  --main-grey : #D3D3D3
-  --brun:#44212b;
-  --bege-fetih: #C9B0A6;
-  --move:#573857;
-  --asfar:#d4a113;
-  --bege-ktirfetih: #D8C8C0
+.rout {
+  --text-color: #fff;    
+  --bg-color: #000;      
+  --main-color: #ffa343; 
+  --h1-font: 6rem;      
+  --h2-font: 3rem;       
+  --p-font: 1rem;     
 }
+
+
