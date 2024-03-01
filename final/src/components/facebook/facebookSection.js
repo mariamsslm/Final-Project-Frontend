@@ -10,7 +10,7 @@ const FacebookSection=()=>{
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/post/getall');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getall`);
                 setPosts(response.data.data);
                 console.log(response.data.data);
             } catch (error) {

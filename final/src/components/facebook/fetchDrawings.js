@@ -10,7 +10,7 @@ const FacebookDrawings=()=>{
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/post/getdraw');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getdraw`);
                 setDrawings(response.data.data);
                 console.log(response.data.data);
             } catch (error) {

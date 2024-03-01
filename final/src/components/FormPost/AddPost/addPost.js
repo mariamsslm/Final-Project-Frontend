@@ -18,7 +18,7 @@ const PostForm = ({ onSubmit }) => {
             formData.append('type', type);
             formData.append('image', image);
 
-            await axios.post(`http://localhost:5000/post/add`, formData);
+            await axios.post(`${process.env.REACT_APP_BACKEND}/post/add`, formData);
             navigate('/posts');
         } catch (error) {
             console.error(error.message);

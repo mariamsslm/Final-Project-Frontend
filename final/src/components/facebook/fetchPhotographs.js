@@ -10,7 +10,7 @@ const FacebookPhotographs=()=>{
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/post/getallphoto');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getallphoto`);
                 setPhotographs(response.data.data);
                 console.log(response.data.data);
             } catch (error) {

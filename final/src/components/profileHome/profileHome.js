@@ -22,7 +22,7 @@ const ProfileHome = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/user/getall`);
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/user/getall`);
                 setUsers(response.data.Users);
 
                 console.log(response.data.Users);
@@ -42,7 +42,7 @@ const ProfileHome = () => {
                     {users.map((user, index) => (
                         <Link to={`/user/${user._id}`} key={user._id}>
                                 <div className={style.row}>
-                                    <img src={`http://localhost:5000/images/${user.image}`} alt={user.name} />
+                                    <img src={`${process.env.REACT_APP_BACKEND}/images/${user.image}`} alt={user.name} />
                                     <p>{user.name}</p>
                                 </div>
                         </Link>

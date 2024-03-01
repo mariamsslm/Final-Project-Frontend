@@ -18,7 +18,7 @@ const FacebookPost = ({ post }) => {
     return (
         <div className={style.post}>
             <div className={style.header}>
-                <img src={`http://localhost:5000/images/${post.userID?.image}`} alt="Profile Picture" className={style.picture} />
+                <img src={`${process.env.REACT_APP_BACKEND}/images/${post.userID?.image}`} alt="Profile Picture" className={style.picture} />
                 <div className={style.info}>
                     <h2 className={style.name}>{post.userID?.name}</h2>
                     <p className={style.date}>Posted on {post.createdAt.split("T")[0]}</p>
@@ -37,7 +37,7 @@ const FacebookPost = ({ post }) => {
             </div>
             <div className={style.content}>
                 <p className={style.text}>{post.description}</p>
-                <img src={`http://localhost:5000/images/${post.image}`} alt='' className={style.image} />
+                <img src={`${process.env.REACT_APP_BACKEND}/images/${post.image}`} alt='' className={style.image} />
                 <div><span>20</span><i className="ri-heart-fill" style={{ color: 'red' }}></i></div>
 
             </div>

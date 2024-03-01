@@ -28,7 +28,7 @@ const Login = () => {
     async function getUser() {
         try {
           const response = await axios.post(
-            `http://localhost:5000/user/login`,
+            `${process.env.REACT_APP_BACKEND}/user/login`,
             formData
           );
           if (response) {

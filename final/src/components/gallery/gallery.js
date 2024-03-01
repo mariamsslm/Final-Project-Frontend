@@ -29,7 +29,7 @@ const Gallery = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/post/getall');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getall`);
                 setImages(response.data.data);
                 console.log(response.data.data);
             } catch (error) {
@@ -49,7 +49,7 @@ const Gallery = () => {
                     {images.map((image, index) => (
                         <img
                             key={index}
-                            src={`http://localhost:5000/images/${image.image}`}
+                            src={`${process.env.REACT_APP_BACKEND}/images/${image.image}`}
                             alt=''
                             onClick={() => handleClick(index)}
                         />
@@ -62,7 +62,7 @@ const Gallery = () => {
                     <span className={style.close} onClick={handleClose}>
                         &times;
                     </span>
-                    <img src={`http://localhost:5000/images/${images[currentIndex].image}`} alt={`Image ${currentIndex + 1}`} />
+                    <img src={`${process.env.REACT_APP_BACKEND}/images/${images[currentIndex].image}`} alt={`Image ${currentIndex + 1}`} />
                     <div className={style.prev} onClick={handlePrev}>
                         &#10094;
                     </div>
