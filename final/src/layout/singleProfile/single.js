@@ -11,7 +11,7 @@ const SingleProfile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/user/get/${_id}`);
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/user/get/${_id}`);
 
                 if (response.data) {
                     setData(response.data.data);
@@ -33,7 +33,7 @@ const SingleProfile = () => {
             <article className={style.about}>
             <div className={style.image}>
                 {/* Uncomment and replace 'post.image' with the correct source */}
-                {data && <img src={`http://localhost:5000/images/${data.image}`} alt="Profile" />}
+                {data && <img src={`${process.env.REACT_APP_BACKEND}/images/${data.image}`} alt="Profile" />}
             </div>
             <div className={style.text}>
                 {data && (

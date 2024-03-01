@@ -12,7 +12,7 @@ const Portfoli= () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/user/getlatest');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/user/getlatest`);
                 setData(response.data.latestUsers);
                 console.log(response.data.latestUsers);
             } catch (error) {
@@ -34,7 +34,7 @@ const Portfoli= () => {
                          <Link to={`/user/${profile._id}`} key={profile._id}>
                             <div className={style.row} key={index}>
                                 <div className={style.images}>
-                                <img src={`http://localhost:5000/images/${profile.image}`} alt={profile.name} />
+                                <img src={`${process.env.REACT_APP_BACKEND}/images/${profile.image}`} alt={profile.name} />
                                 </div>
                                 <p>{profile.name}</p>
                         </div>
