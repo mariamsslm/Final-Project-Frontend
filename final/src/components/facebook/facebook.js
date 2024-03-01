@@ -16,7 +16,7 @@ const FacebookPost = ({ post }) => {
     };
 
     return (
-        <section className={style.post}>
+        <div className={style.post}>
             <div className={style.header}>
                 <img src={`http://localhost:5000/images/${post.userID?.image}`} alt="Profile Picture" className={style.picture} />
                 <div className={style.info}>
@@ -38,16 +38,19 @@ const FacebookPost = ({ post }) => {
             <div className={style.content}>
                 <p className={style.text}>{post.description}</p>
                 <img src={`http://localhost:5000/images/${post.image}`} alt='' className={style.image} />
+                <div><span>20</span><i className="ri-heart-fill" style={{ color: 'red' }}></i></div>
+
             </div>
+         
+          
             <div className={style.actions}>
                 <i
                     className={`ri-heart-fill ${isLiked ? style.redHeart : ''}`}
                     style={{ fontSize: '2rem', fontWeight: 500 }}
                     onClick={toggleLike}
                 ></i>
-                <p>{post.likes}<i className="ri-heart-fill" style={{ color: 'red' }}></i></p>
             </div>
-        </section>
+        </div>
     );
 };
 

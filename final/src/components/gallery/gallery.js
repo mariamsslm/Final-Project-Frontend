@@ -1,8 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios'
 import style from '../gallery/gallery.module.css';
-import image from '../../assets/gallery.jpg';
-import imagee from '../../assets/hero.jpg'
+
 
 const Gallery = () => {
     const [images, setImages] = useState([]);

@@ -43,7 +43,7 @@ const ProfileHome = () => {
                         <Link to={`/user/${user._id}`} key={user._id}>
                                 <div className={style.row}>
                                     <img src={`http://localhost:5000/images/${user.image}`} alt={user.name} />
-                                    <h4 >{user.name}</h4>
+                                    <p>{user.name}</p>
                                 </div>
                         </Link>
                     ))}

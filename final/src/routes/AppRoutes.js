@@ -26,9 +26,11 @@ function AppRoutes() {
             <Route path='/profil' element={<Portfolio/>} />
             <Route path='/about' element={<AbouUs/>} />
             <Route path='/gallery' element={<GalleryPage/>} />
+            <Route path="/user/:_id" element={<SingleProfile/>} />
+
         </Route>
 
-        <Route path="/user/:id" element={<SingleProfile/>} />
+        <Route path="/user/:_id" element={<SingleProfile/>} />
         <Route path="/post/:id" element={<EditForm/>} />
 
 

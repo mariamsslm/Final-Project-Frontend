@@ -21,7 +21,7 @@ const FacebookSection=()=>{
     }, []);
 
     return (
-        <div>
+        <div >
             {posts.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Portfoli from '../components/portfolio/portfolio'
 import SingleProfile from '../layout/singleProfile/single'
 // import FacebookPost from '../components/facebook/facebook'
 const Portfolio=()=>{
@@ -7,8 +6,7 @@ const Portfolio=()=>{
         <div>
             
             <SingleProfile/>
-            {/* <FacebookPost/> */}
-            <Portfoli/>
+            
 
         </div>
     )

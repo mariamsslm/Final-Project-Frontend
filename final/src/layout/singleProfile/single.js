@@ -2,44 +2,57 @@ import React, { useState, useEffect } from 'react';
 import style from '../../layout/singleProfile/single.module.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Portfoli   from '../../components/portfolio/portfolio'
 
 const SingleProfile = () => {
-    const {_id}  = useParams();
+    const { _id } = useParams();
     const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5001/user/get/${_id}`);
-                if (response.data.success) {
+                const response = await axios.get(`http://localhost:5000/user/get/${_id}`);
+
+                if (response.data) {
                     setData(response.data.data);
+                    console.log('Data:', response.data.data);
                 } else {
                     setData(null);
+                    console.error('Failed to fetch user:', response.data.message);
                 }
             } catch (error) {
                 console.error('Error fetching user:', error);
             }
         };
+
         fetchData();
     }, [_id]);
 
     return (
-        <section className={style.about}>
+        <section >
+            <article className={style.about}>
             <div className={style.image}>
-                {/* <img src={post.image} alt="Profile" />  */}
+                {/* Uncomment and replace 'post.image' with the correct source */}
+                {data && <img src={`http://localhost:5000/images/${data.image}`} alt="Profile" />}
             </div>
             <div className={style.text}>
-                {data && ( // Only render if data is not null
+                {data && (
                     <>
                         <h2>{data.name}</h2>
                         <p>{data.bio}</p>
                         <p>{data.email}</p>
                         <p>{data.phone}</p>
-                        <a href='#' className={style.btn}>Posts</a>
+                        <a href='#' className={style.btn}>See posts</a>
                     </>
                 )}
             </div>
+          
+            </article>
+            <article><Portfoli/></article>
         </section>
+        
+        
+        
     );
 };
 

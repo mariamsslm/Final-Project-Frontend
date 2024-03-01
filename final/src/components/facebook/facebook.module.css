@@ -1,17 +1,29 @@
 .post {
-    /* border-bottom: 1px solid #ccc; */
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+
     border-radius: 5px;
-    padding: 90px 17%  60px;
     margin-bottom: 20px;
     position: relative; 
+    width: 45%;
+    margin:20px auto ;
+    height: auto;
+    padding: 2rem;
+   
+    
+   
+    
+    
+   
 }
+
 
 .header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     position: relative;
-    border-bottom: 1px solid white;
 }
 
 .picture {
@@ -52,20 +64,26 @@
     margin-bottom: 0.5rem;
     text-align: left;
 }
+/* .tit{
+position: absolute;
+bottom: 7%;
+left:37px
+} */
 
 .image {
     height: auto;
     width: 100%;
     object-fit: cover;
-    max-height: 300px; /* Limit the maximum height of the image */
-    object-fit: cover; /* Maintain aspect ratio */
-    margin-top: 10px;
+    max-height: 300px; 
+    object-fit: cover; 
+    margin-top: 10px 0;
 }
 
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    border-top: 1px solid #ffffffab;
 }
 
 .actions p {

@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/authContext';
 
 const Navbar = () => {
 
-  const user = useContext(AuthContext)
+  const {user , logout} = useContext(AuthContext)
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
 
@@ -34,7 +34,11 @@ const Navbar = () => {
         <li><a href='/profil'>Portfolio</a></li>
       </ul>
       <div className={style.right}>
-        <a href='/signup'>Join</a>
+      {user ? (
+          <button className={style.logout} onClick={logout}>Logout</button>
+        ) : (
+          <a href='/signup'>Join</a>
+        )}
         <a href='https://web.whatsapp.com/#'><i className="ri-whatsapp-fill"></i></a>
         <a href='#'><i className="ri-instagram-fill"></i></a>
         <a href='#'><i className="ri-facebook-fill"></i></a>

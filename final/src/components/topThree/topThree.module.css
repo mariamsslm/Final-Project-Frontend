@@ -29,8 +29,9 @@
     object-fit: cover;
     border-radius: 10px;
     filter: brightness(70%);
-    transition: all .3s cubic-bezier(.499,.05,.55,.95);
-    will-change: filter;
+    transform: skew(0deg); 
+    transition: transform 0.3s ease;    
+    
     display: block;
 }
 .box h6{
@@ -49,8 +50,10 @@
 }
 .box img:hover{
     
-    transform: scale(1.04);
     cursor: pointer;
+    transform: scale(1.1); 
+
+
 }
 @media(max-width:500px){
 

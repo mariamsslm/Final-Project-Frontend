@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import style from '../signup/signup.module.css';
 import axiosInstance from '../../utils/axiosInstance';
+import { AuthContext } from '../../context/authContext';
 
 const Signup = () => {
+    const {setUser} = useContext(AuthContext)
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -57,6 +59,8 @@ const Signup = () => {
             formData.append('image', image);
 
             const response = await axiosInstance.post("/user/signup", formData);
+            setUser(response.data.token.data)
+            console.log(setUser)
             console.log(response);
             console.log('success');
             navigate("/");

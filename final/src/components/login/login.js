@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import style from '../login/login.module.css';
 import useApi from '../../hooks/useApi';
+import axios from 'axios'
+import { AuthContext } from '../../context/authContext';
 
 const Login = () => {
+
+    const {setUser, fetchUserData, fetchUserDataone ,user } = useContext(AuthContext)
     const navigate = useNavigate();
-    const [loginSuccess, setLoginSuccess] = useState(false);
     const { apiCall } = useApi();
+    const [isPending, setIsPending] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
@@ -21,46 +25,89 @@ const Login = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-    
-        if (!formData.email || !formData.password) {
-            console.log('Insert Email or Password');
-            setLoading(false);
-            return;
+    async function getUser() {
+        try {
+          const response = await axios.post(
+            `http://localhost:5000/user/login`,
+            formData
+          );
+          if (response) {
+            console.log(response.data);
+            setUser(response.data.token.data);
+          }
+        } catch (error) {
+          console.log(error);
         }
+      }
+
+      useEffect(() => {
+        getUser();
+      }, []);
+
+
+
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+        setIsPending(true);
+        if (!formData.email || !formData.password) {
+          setIsPending(false);
+    
+          return;
+        }
+    
+        setFormData({
+          email: "",
+          password: "",
+        });
     
         try {
-            // Make API call to login endpoint
-            await apiCall({
-                url: '/user/login',
-                method: 'post',
-                data: formData, // Directly use formData object
-            });
-    
-            // Update login success state and navigate to homepage
-            setLoginSuccess(true);
-            setLoading(false);
-            navigate('/');
+          const res = await apiCall({
+            url: "/user/login",
+            method: "post",
+            data: {
+              email: formData.email,
+              password: formData.password,
+            },
+          });
+          setUser(res.token.data.role);
+          console.log("user:", user);
+          console.log("resis", res);
+          console.log("role", res.token.data.role);
+          console.log("call auth");
+          // fetchUserData();
+          fetchUserDataone();
+          console.log("تم تسجيل الدخول بنجاح");
+          setIsPending(false);
+          if (res.token.data.role === "admin") {
+            navigate("/users");
+          } else if (res.token.data.role === "dataEntry") {
+            navigate("/products");
+          } else navigate("/");
         } catch (error) {
-            // Handle API call errors
-            console.error('Login failed:', error);
-            setLoading(false);
-            // Check for specific errors and display appropriate messages
-            if (error.response && error.response.data && error.response.data.errors) {
-                const { errors } = error.response.data;
-                if (errors.email) {
-                    console.log('Email error:', errors.email);
-                }
-                if (errors.password) {
-                    console.log('Password error:', errors.password);
-                }
-            } else {
-                console.log('Unexpected error occurred');
+          if (error.response && error.response.data && error.response.data.errors) {
+            const { errors } = error.response.data;
+    
+            if (errors.email) {
+              const emailError = errors.email;
+              console.log(emailError);
             }
+            if (errors.password) {
+              const passwordError = errors.password;
+              console.log(passwordError);
+            }
+          } else {
+            console.log(error.message);
+          }
+          setIsPending(false);
         }
-    };
+      };
+    
+
+
+
+
+
+    
     
 
     const [isSignUp, setIsSignUp] = useState(false);
@@ -71,7 +118,6 @@ const Login = () => {
 
     return (
         <section className={style.container}>
-            {loginSuccess && <p>Login Successful!</p>}
             <Link to='/'>
                 <button className={style.return}>Home</button>
             </Link>

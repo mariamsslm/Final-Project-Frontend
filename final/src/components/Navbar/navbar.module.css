@@ -63,6 +63,20 @@ header.sticky{
     transform: translateY(-3px);
 }
 
+.logout{
+    vertical-align: middle;
+    font-size: 20px;
+    color: #fff;
+    background: transparent;
+    margin-right: 18px;
+    margin-left: 5px;
+    transition: all .50s  ease;
+}
+.logout:hover{
+    color: #ffa343;
+    transform: translateY(-3px);
+}
+
 
 .menu {
     color: #fff;

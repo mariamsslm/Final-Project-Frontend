@@ -98,15 +98,16 @@
 .row img:hover {
     transform: translateY(6px);
 }
-.row h4{
+.row p{
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
     transition: all .50s ease;
     margin-top: 20px;
+    color: #fff;
 }
 
-.row h4:hover {
+.row p:hover {
     color: #ffa343;
 }
 .text {

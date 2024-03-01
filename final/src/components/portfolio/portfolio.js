@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import style from '../portfolio/portfolio.module.css';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 
 const Portfoli= () => {
@@ -23,21 +24,25 @@ const Portfoli= () => {
         
 
     return (
-        <section className={style.profile}>
+       
+        <div className={style.profile}>
             <div className={style.text}>
                 <h2>New Artists</h2>
             </div>
             <div className={style.content}>
                     {data.map((profile, index) => (
+                         <Link to={`/user/${profile._id}`} key={profile._id}>
                             <div className={style.row} key={index}>
                                 <div className={style.images}>
                                 <img src={`http://localhost:5000/images/${profile.image}`} alt={profile.name} />
                                 </div>
-                                <h4>{profile.name}</h4>
+                                <p>{profile.name}</p>
                         </div>
+                        </Link>
                     ))}
             </div>
-        </section>
+        </div>
+       
     );
 };
 
