@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from '../Navbar/navbar.module.css';
+import { AuthContext } from '../../context/authContext';
 
 const Navbar = () => {
+
+  const user = useContext(AuthContext)
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
 

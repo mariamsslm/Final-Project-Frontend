@@ -10,7 +10,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    position: relative
+    position: relative;
+    border-bottom: 1px solid white;
 }
 
 .picture {
@@ -38,12 +39,12 @@
 }
 
 .content {
-    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 10px;
+    
 }
 
 .text {

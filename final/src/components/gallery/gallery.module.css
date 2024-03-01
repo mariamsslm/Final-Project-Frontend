@@ -29,8 +29,8 @@
 
 }
 .images img{
-    padding: 3px;
-    border-radius: 10px;
+    padding: 10px;
+   border-radius: 5px;
     width: 50%;
     height: auto;
 }

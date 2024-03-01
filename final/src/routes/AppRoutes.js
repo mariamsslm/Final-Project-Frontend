@@ -13,6 +13,7 @@ import PostForm from '../components/FormPost/AddPost/addPost'
 import Sidebar from '../pages/dashboard'
 import Overview from '../components/Dashboard/overview/overview'
 import SingleProfile from '../layout/singleProfile/single'
+import EditForm from '../components/FormPost/EditPost/editPost'
 
 
 function AppRoutes() {
@@ -28,6 +29,8 @@ function AppRoutes() {
         </Route>
 
         <Route path="/user/:id" element={<SingleProfile/>} />
+        <Route path="/post/:id" element={<EditForm/>} />
+
 
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>

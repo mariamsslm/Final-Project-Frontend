@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from '../portfolio/portfolio.module.css';
-import profile1 from '../../assets/profile1.jpeg';
-import profile2 from '../../assets/profile2.jpeg';
-import profile3 from '../../assets/profile3.jpeg';
-import profile4 from '../../assets/profile4.jpg';
+import axios from 'axios'
+
 
 const Portfoli= () => {
-    const [data, setData] = useState([
-        {
-            name: 'Mariam',
-            image: profile1
-        },
-        {
-            name: 'Ali',
-            image: profile2
-        },
-        {
-            name: 'Abudi',
-            image: profile3
-        },
-       
-    ]);
+    const [data, setData] = useState([])
+
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/user/getlatest');
+                setData(response.data.latestUsers);
+                console.log(response.data.latestUsers);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        };
+        fetchData();
+    }, []);
+        
 
     return (
         <section className={style.profile}>
@@ -31,7 +31,7 @@ const Portfoli= () => {
                     {data.map((profile, index) => (
                             <div className={style.row} key={index}>
                                 <div className={style.images}>
-                                <img src={profile.image} alt={profile.name} />
+                                <img src={`http://localhost:5000/images/${profile.image}`} alt={profile.name} />
                                 </div>
                                 <h4>{profile.name}</h4>
                         </div>

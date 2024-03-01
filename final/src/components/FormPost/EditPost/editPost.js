@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from '../AddPost/addPost.module.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const PostForm = ({ onSubmit }) => {
-    const [description, setDescription] = useState('');
-    const [type, setType] = useState('');
-    const [image, setImage] = useState('');
+const EditForm = () => {
+    const { _id } = useParams();
+    const [description, setDescription] = useState({description:''});
+    const [type, setType] = useState({type:''});
+    const [image, setImage] = useState({image:''});
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/post/${_id}`);
+                const postData = response.data;
+                setDescription(postData.description);
+                setType(postData.type);
+                setImage(postData.image);
+            } catch (error) {
+                console.error('Error fetching post:', error);
+            }
+        };
+
+        fetchPost();
+    }, [_id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,19 +33,19 @@ const PostForm = ({ onSubmit }) => {
             const formData = new FormData();
             formData.append('description', description);
             formData.append('type', type);
-            formData.append('image', image);
+            formData.append('image', image); 
 
-            await axios.post(`http://localhost:5000/post/add`, formData);
+            await axios.put(`http://localhost:5000/post/update/${_id}`, formData);
             navigate('/posts');
         } catch (error) {
-            console.error(error.message);
+            console.error('Error updating post:', error);
         }
     };
 
     return (
         <section>
             <div className={style.postForm}>
-                <h2>Create Post</h2>
+                <h2>Update Post</h2>
                 <form onSubmit={handleSubmit}>
                     <textarea
                         className={style.input}
@@ -51,11 +68,11 @@ const PostForm = ({ onSubmit }) => {
                         type="file"
                         onChange={(e) => setImage(e.target.files[0])}
                     />
-                    <button type="submit">Post</button>
+                    <button type="submit">Update</button>
                 </form>
             </div>
         </section>
     );
 };
 
-export default PostForm;
+export default EditForm;

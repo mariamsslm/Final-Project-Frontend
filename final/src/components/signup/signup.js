@@ -1,81 +1,89 @@
-import React, { useState } from 'react'
-import { Link, useNavigate  } from 'react-router-dom';
-import style from '../signup/signup.module.css'
-import useApi from '../../hooks/useApi';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import style from '../signup/signup.module.css';
 import axiosInstance from '../../utils/axiosInstance';
 
-
 const Signup = () => {
-
     const [loading, setLoading] = useState(false);
-    const { apiCall } = useApi();
-    const navigate = useNavigate()
-    const [formData, setFormData] = useState({
-      name: "",
-      email: "",
-      password: "",
-      role: 'user',
-      bio:"",
-      phone:"",
-      image:"",
-    });
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [role, setRole] = useState('user');
+    const [bio, setBio] = useState("");
+    const [phone, setPhone] = useState("");
+    const [image, setImage] = useState("");
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    };
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
-      const handleSubmit = async (e) => {
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleRoleChange = (e) => {
+        setRole(e.target.value);
+    };
+
+    const handleBioChange = (e) => {
+        setBio(e.target.value);
+    };
+
+    const handlePhoneChange = (e) => {
+        setPhone(e.target.value);
+    };
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true)
-        try {
-          const response = await axiosInstance.post("/user/signup", formData);
-          console.log(response)
-          console.log('success')
-          navigate("/")
-        } catch (error) {
-          if (error.response && error.response.data && error.response.data.errors) {
-            const { errors } = error.response.data;
-    
-            if (errors.email) {
-              const emailError = errors.email;
-              console.log(emailError)
-            }
-            if (errors.password) {
-              const passwordError = errors.password;
-              console.log(passwordError)
-            }
-          } else {
-            console.log('error')
-          }
-          setLoading(false);
-        }
-    
-        setFormData({
-            name: "",
-            email: "",
-            password: "",
-            role: 'user',
-            bio:"",
-            phone:"",
-            image:"",
-        });
-      };
+        setLoading(true);
 
+        try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('role', role);
+            formData.append('bio', bio);
+            formData.append('phone', phone);
+            formData.append('image', image);
+
+            const response = await axiosInstance.post("/user/signup", formData);
+            console.log(response);
+            console.log('success');
+            navigate("/");
+        } catch (error) {
+            console.error('Error during signup:', error);
+        }
+
+        setLoading(false);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setRole("user");
+        setBio("");
+        setPhone("");
+        setImage("");
+    };
 
     const [isSignUp, setIsSignUp] = useState(true);
 
     const toggleForm = () => {
         setIsSignUp(!isSignUp);
     };
+
     return (
         <section className={style.container}>
             <Link to='/'>
-            <button className={style.return}>Home</button>
+                <button className={style.return}>Home</button>
             </Link>
 
             <article className={style.content}>
@@ -88,7 +96,8 @@ const Signup = () => {
                                 id='name'
                                 name='name'
                                 placeholder='Name'
-                                onChange={handleInputChange}
+                                value={name}
+                                onChange={handleNameChange}
                             />
                         </div>
                         <div className={style.box}>
@@ -97,7 +106,8 @@ const Signup = () => {
                                 id='email'
                                 name='email'
                                 placeholder='Email'
-                                onChange={handleInputChange}
+                                value={email}
+                                onChange={handleEmailChange}
                             />
                         </div>
                         <div className={style.box}>
@@ -106,7 +116,8 @@ const Signup = () => {
                                 id='password'
                                 name='password'
                                 placeholder='Password'
-                                onChange={handleInputChange}
+                                value={password}
+                                onChange={handlePasswordChange}
                             />
                         </div>
                         <div className={style.box}>
@@ -115,7 +126,8 @@ const Signup = () => {
                                 id='phone'
                                 name='phone'
                                 placeholder='Phone'
-                                onChange={handleInputChange}
+                                value={phone}
+                                onChange={handlePhoneChange}
                             />
                         </div>
                         <div className={style.box}>
@@ -123,7 +135,8 @@ const Signup = () => {
                                 id="bio"
                                 name="bio"
                                 placeholder="Bio"
-                                onChange={handleInputChange}
+                                value={bio}
+                                onChange={handleBioChange}
                             />
                         </div>
                         <div className={style.box}>
@@ -132,24 +145,23 @@ const Signup = () => {
                                 id='image'
                                 name='image'
                                 placeholder='Picture'
-                                onChange={handleInputChange}
+                                onChange={handleImageChange}
                             />
                         </div>
                     </div>
                     <div className={style.btn}>
-                        <input type='submit' value='Add' />
+                        <input type='submit' value='Add' disabled={loading} />
                     </div>
                 </form>
-
             </article>
+
             <div className={style.toggle}>
                 <Link to='/login'>
                     <p className={style.toggleButton} onClick={toggleForm}>{isSignUp ? 'Sign In' : 'Sign Up'}</p>
                 </Link>
             </div>
         </section>
+    );
+};
 
-
-    )
-}
 export default Signup;

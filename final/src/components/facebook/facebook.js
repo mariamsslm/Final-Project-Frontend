@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import style from '../facebook/facebook.module.css';
+import { Link } from 'react-router-dom';
 
 const FacebookPost = ({ post }) => {
 
@@ -26,7 +27,9 @@ const FacebookPost = ({ post }) => {
                     <i className="ri-more-2-fill"></i>
                     {showMenu && (
                         <div className={style.dropdown}>
-                            <button>Edit</button>
+                            <Link to={`/post/${post._id}`}>
+                                <button>Edit</button>
+                            </Link>
                             <button>Delete</button>
                         </div>
                     )}
