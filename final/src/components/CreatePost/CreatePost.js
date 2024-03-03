@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CreatePost=()=>{
     return(
+       
         <div className={style.row}>
         <div className={style.image}>
             <Link to='/add'>
@@ -13,6 +14,7 @@ const CreatePost=()=>{
         </div>
         <h4>Add Post</h4>
     </div>
+    
 
     )
 }

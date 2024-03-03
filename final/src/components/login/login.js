@@ -80,10 +80,10 @@ const Login = () => {
           setIsPending(false);
           if (res.token.data.role === "admin") {
             navigate("/users");
-          } else if (res.token.data.role === "dataEntry") {
-            navigate("/products");
-          } else navigate("/");
-        } catch (error) {
+          } else if (res.token.data.role === "user") {
+            navigate("/");
+        }} 
+        catch (error) {
           if (error.response && error.response.data && error.response.data.errors) {
             const { errors } = error.response.data;
     
@@ -118,9 +118,12 @@ const Login = () => {
 
     return (
         <section className={style.container}>
+          <div className={style.return}>
             <Link to='/'>
-                <button className={style.return}>Home</button>
+              <i class="ri-expand-left-fill" style={{color:'white'}}>Home</i>
+                
             </Link>
+            </div>
 
             <article className={style.content}>
                 <h1 className={style.title}>{isSignUp ? 'Sign Up' : 'Sign In'}</h1>

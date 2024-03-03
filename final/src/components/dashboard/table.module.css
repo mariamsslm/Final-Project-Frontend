@@ -1,0 +1,51 @@
+/* table.module.css */
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+.picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+table {
+    margin: 2rem auto;
+    width: 50%;
+    border-collapse: collapse;
+}
+.picture{
+
+}
+h2{
+    margin-top: 20px;
+}
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #555252;
+}
+
+.table th {
+    background-color: #1a1818;
+    font-weight: bold;
+}
+
+
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .table {
+        overflow-x: auto;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

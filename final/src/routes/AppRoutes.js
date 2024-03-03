@@ -14,6 +14,12 @@ import Sidebar from '../pages/dashboard'
 import Overview from '../components/Dashboard/overview/overview'
 import SingleProfile from '../layout/singleProfile/single'
 import EditForm from '../components/FormPost/EditPost/editPost'
+import ProtectedRoute from '../routes/potectedRoute'
+import AllProfile from '../pages/AllProfiles'
+import LayoutWithSidebar from './withSideBar'
+import PostTable from '../components/dashboard/tableUser' 
+import UserTable from '../components/dashboard/user/userTable'
+// import  UserTable from '../components/dashboard/tableUser'
 
 
 function AppRoutes() {
@@ -21,24 +27,63 @@ function AppRoutes() {
     <Routes>
          
         <Route exact path="/" element={<Container />}>
-            <Route path='/' element={<HomePage/>} />
-            <Route path='/posts' element={< PostPage/>} />
-            <Route path='/profil' element={<Portfolio/>} />
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/oneArtist' element={<Portfolio/>} />
+        <Route path='/profil' element={< AllProfile/>} />
+
+
             <Route path='/about' element={<AbouUs/>} />
             <Route path='/gallery' element={<GalleryPage/>} />
-            <Route path="/user/:_id" element={<SingleProfile/>} />
 
+           
+            
+            <Route path='/posts' element={<PostPage/>} />
+            
+            
+            <Route path="/user/:_id" element={<SingleProfile/>} />
+            
         </Route>
 
+
+          {/* without navbar and footer */}
         <Route path="/user/:_id" element={<SingleProfile/>} />
-        <Route path="/post/:id" element={<EditForm/>} />
+        <Route path="/post/:_id" element={<EditForm/>} />
 
 
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path='/add' element={<PostForm/>} />
-        <Route path='/dash' element={<Sidebar/>} />
-        <Route path='/a' element={<Overview/>} />
+        <Route path='/a' element={<PostTable/>} />
+        
+
+
+
+
+        {/* with sideBar */}
+        <Route
+        path="/postTable"
+        element={
+          
+            <LayoutWithSidebar>
+              {" "}
+              <PostTable/>
+             
+            </LayoutWithSidebar>
+          
+        }
+      ></Route>
+      <Route
+        path="userTable"
+        element={
+          
+            <LayoutWithSidebar>
+              {" "}
+              <UserTable/>
+             
+            </LayoutWithSidebar>
+          
+        }
+      ></Route>
 
 
     </Routes>

@@ -5,18 +5,20 @@ import SectionOne from '../components/sectionOne/sectionOne';
 import Top from '../components/topThree/topThree';
 import About from '../components/about us/about'
 import ProfileHome from '../components/profileHome/profileHome'
+import Portfoli from '../components/portfolio/portfolio';
 
 
 
-const HomePage=()=>{
-    return(
+const HomePage = () => {
+    return (
         <div>
-            <Hero/>
-            <Feature/>
-            <SectionOne/>
-            <Top/>
-            <About/>
-            <ProfileHome/>
+            <Hero />
+            <Feature />
+            <SectionOne />
+            <Top />
+            <About />
+            <Portfoli />
+
         </div>
     )
 }

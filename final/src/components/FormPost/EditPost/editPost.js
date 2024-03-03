@@ -5,16 +5,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const EditForm = () => {
     const { _id } = useParams();
-    const [description, setDescription] = useState({description:''});
-    const [type, setType] = useState({type:''});
-    const [image, setImage] = useState({image:''});
-    const navigate = useNavigate();
+    const [description, setDescription] = useState('');
+    const [type, setType] = useState('');
+    const [image, setImage] = useState('');
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/post/${_id}`);
-                const postData = response.data;
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getById/${_id}`);
+                const postData = response.data.data;
                 setDescription(postData.description);
                 setType(postData.type);
                 setImage(postData.image);
@@ -35,7 +35,7 @@ const EditForm = () => {
             formData.append('type', type);
             formData.append('image', image); 
 
-            await axios.put(`http://localhost:5000/post/update/${_id}`, formData);
+            await axios.put(`${process.env.REACT_APP_BACKEND}/post/update/${_id}`, formData);
             navigate('/posts');
         } catch (error) {
             console.error('Error updating post:', error);

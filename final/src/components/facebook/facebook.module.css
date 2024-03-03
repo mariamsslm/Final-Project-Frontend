@@ -1,7 +1,8 @@
+
 .post {
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
+
+background: #0f0f0f;
+box-shadow: inset -2px 2px 2px rgb(28, 28, 28);
 
     border-radius: 5px;
     margin-bottom: 20px;
@@ -39,6 +40,16 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 20px;
+}
+textarea{
+    background: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+input{
+    text-align: left;
 }
 
 .name {
@@ -81,12 +92,13 @@ left:37px
 
 .actions {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-top: 1px solid #ffffffab;
 }
 
-.actions p {
+.actions p{
+    margin-left:5px ;
     font-size: 1rem;
     font-weight: 500;
     border: white;
@@ -128,7 +140,15 @@ left:37px
 
 .dropdown button:hover {
     background-color: #f0f0f0;
+    color: #000;
+
 }
 .redHeart {
     color: red;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+   
+
 }

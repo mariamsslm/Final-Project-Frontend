@@ -1,0 +1,41 @@
+.filter {
+    position: relative;
+    text-align: left;
+}
+
+.filterIcon {
+border-radius: 5px;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 15%; /* Position the filter icon at the top left corner */
+}
+
+.filterOptions {
+    position: absolute;
+    top: 45px; /* Adjust as needed */
+    left: 15%;
+    border: 1px solid #5b5959;
+    padding: 5px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 5px;
+    background-color: #0f0f0f;
+}
+
+.filterOptions button {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: transparent;
+    color:white;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.active{
+    background-color: #db6262;
+}

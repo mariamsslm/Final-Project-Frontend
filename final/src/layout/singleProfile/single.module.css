@@ -41,7 +41,7 @@
     color:#ffffffab;
     margin-bottom: 35px;
 }
-.btn{
+button{
     display: inline-block;
     padding: 13px 40px;
     background: #ffa343;
@@ -53,11 +53,24 @@
     transition: all .50s ease;
     cursor: pointer;
 }
-.btn:hover{
-    transform: translateX(10px);
+button:hover{
     border: 2px solid #fff;
     background: transparent;
     color: #fff;
+}
+input{
+    border-radius: 5px;
+    padding: 5px;
+}
+.textarea{
+    height:5vh;
+    width: 100%;
+}
+
+.actions{
+    display: flex;
+    justify-content: start;
+    gap: 4rem;
 }
 @media(max-width:1050){
     .about{

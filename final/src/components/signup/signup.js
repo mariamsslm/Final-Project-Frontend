@@ -86,9 +86,12 @@ const Signup = () => {
 
     return (
         <section className={style.container}>
+            <div className={style.return}>
             <Link to='/'>
-                <button className={style.return}>Home</button>
+              <i class="ri-expand-left-fill" style={{color:'white'}}>Home</i>
+                
             </Link>
+            </div>
 
             <article className={style.content}>
                 <h1 className={style.title}>{isSignUp ? 'Sign Up' : 'Sign In'}</h1>
