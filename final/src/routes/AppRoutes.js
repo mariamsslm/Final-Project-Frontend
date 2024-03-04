@@ -53,7 +53,6 @@ function AppRoutes() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path='/add' element={<PostForm/>} />
-        <Route path='/a' element={<PostTable/>} />
         
 
 
@@ -61,7 +60,7 @@ function AppRoutes() {
 
         {/* with sideBar */}
         <Route
-        path="/postTable"
+        path="/dashboard"
         element={
           
             <LayoutWithSidebar>

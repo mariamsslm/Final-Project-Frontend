@@ -76,10 +76,10 @@ const Login = () => {
           console.log("call auth");
           // fetchUserData();
           fetchUserDataone();
-          console.log("تم تسجيل الدخول بنجاح");
+          console.log('loged successfule');
           setIsPending(false);
           if (res.token.data.role === "admin") {
-            navigate("/users");
+            navigate("/dashboard");
           } else if (res.token.data.role === "user") {
             navigate("/");
         }} 

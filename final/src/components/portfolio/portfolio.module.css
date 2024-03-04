@@ -49,3 +49,34 @@
     color: #ffa343;
 
 }
+@media(max-width:500px){
+    .profile h2 {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+    .profile{
+        padding-top: 50px;
+
+    }
+    .profile .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        
+    }
+    .row p{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        color: #fff;
+        font-size: 0.7rem;
+       
+    }
+    .profile .images {
+        width: 180px;
+        height: 180px; 
+        margin: 0 auto; 
+    }
+
+
+
+}

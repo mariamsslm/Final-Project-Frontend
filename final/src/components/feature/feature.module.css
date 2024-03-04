@@ -19,12 +19,10 @@
     height: 100%;
     /* object-fit: cover; */
     display: block;
-    transition:transform 0.7s;
+    transition:transform 0.9s;
 
 }
-.image img:hover{
-    transform: scale(1.2);
-}
+
 .content h4{
     font-size: 17px;
     font-weight: 500;
@@ -35,9 +33,10 @@
     color: #ffa343;
 
 }
-@media(max-width:1050){
+@media(max-width:500px){
     .content{
         gap: 1.5rem;
     }
+  
   
 }
