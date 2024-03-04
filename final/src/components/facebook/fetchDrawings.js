@@ -21,11 +21,11 @@ const FacebookDrawings=()=>{
     }, []);
 
     return (
-        <div>
+        <section>
             {drawings.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}
-        </div>
+        </section>
     );
 };
 export default FacebookDrawings; 

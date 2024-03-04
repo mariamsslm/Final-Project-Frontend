@@ -39,3 +39,33 @@ border-radius: 5px;
 .active{
     background-color: #db6262;
 }
+@media(max-width:500px){
+    .filter {
+        position: relative;
+        text-align: center;
+        padding:0 0 5% 0;
+    }
+    .filterIcon {
+        border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 40%; 
+        }
+        .filterOptions {
+            position: absolute;
+            top: 45px; 
+            left: 40%;
+            border: 1px solid #5b5959;
+            padding: 5px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            border-radius: 5px;
+            background-color: #0f0f0f;
+        }
+
+}

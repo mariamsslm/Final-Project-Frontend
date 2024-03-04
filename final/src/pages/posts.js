@@ -7,30 +7,30 @@ import CreatePost from '../components/CreatePost/CreatePost'
 import FacebookSection from '../components/facebook/facebookSection'
 import FacebookDrawings from '../components/facebook/fetchDrawings'
 import FacebookPhotographs from '../components/facebook/fetchPhotographs'
-import  FacebookWritings from '../components/facebook/fetchWritings'
+import FacebookWritings from '../components/facebook/fetchWritings'
 import PostsOldPost from '../components/facebook/fetchTheOld'
 import { usePostContext } from '../context/PostContext'
-import Filter  from '../components/filter/filter'
+import Filter from '../components/filter/filter'
 
-const PostPage = ()=>{
+const PostPage = () => {
 
-    const { isSection, isDrawing, isPhotograph, isWriting , isOld} = usePostContext()
+    const { isSection, isDrawing, isPhotograph, isWriting, isOld } = usePostContext()
 
-    return(
+    return (
         <div>
-        <SecondHero/>
-        <CreatePost/>
-        <Filter/>
-        
-        { isSection && <FacebookSection/> }
-        { isDrawing && <FacebookDrawings/> }
-        { isPhotograph && <FacebookPhotographs/> }
-        { isWriting && <FacebookWritings/> }
-        { isOld && <PostsOldPost/>}
+            <SecondHero />
+            <CreatePost />
+            <Filter />
 
-        
-        {/* <Profiles/> */}
-        {/* <Post/> */}
+            {isSection && <FacebookSection />}
+            {isDrawing && <FacebookDrawings />}
+            {isPhotograph && <FacebookPhotographs />}
+            {isWriting && <FacebookWritings />}
+            {isOld && <PostsOldPost />}
+
+
+            {/* <Profiles/> */}
+            {/* <Post/> */}
         </div>
 
     )

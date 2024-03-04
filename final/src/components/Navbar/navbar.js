@@ -56,7 +56,7 @@ const Navbar = () => {
         {user ? (
           <button className={style.logout} onClick={logout}>Logout</button>
         ) : (
-          <Link to='/signup'>Join</Link>
+          <Link to='/login'>Join</Link>
         )}
         <a href='https://web.whatsapp.com/#'><i className="ri-whatsapp-fill"></i></a>
         <a href='#'><i className="ri-instagram-fill"></i></a>

@@ -25,7 +25,7 @@ const FacebookSection = () => {
     
 
     return (
-        <div className={style.stylle}>
+        <section className={style.stylle}>
             
 
             {filteredPosts.map((post, index) => (
@@ -34,7 +34,7 @@ const FacebookSection = () => {
                     
                 </div>
             ))}
-        </div>
+        </section>
     );
 };
 

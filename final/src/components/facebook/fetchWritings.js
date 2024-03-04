@@ -21,11 +21,11 @@ const FacebookWritings=()=>{
     }, []);
 
     return (
-        <div>
+        <section>
             {writings.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}
-        </div>
+        </section>
     );
 };
 export default  FacebookWritings; 

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import style from '../AddPost/addPost.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { AuthContext } from '../../../context/authContext';
 
-const PostForm = ({ onSubmit }) => {
+
+const PostForm = () => {
+    const { user } = useContext(AuthContext)
     const [description, setDescription] = useState('');
     const [type, setType] = useState('');
     const [image, setImage] = useState('');
@@ -18,12 +21,18 @@ const PostForm = ({ onSubmit }) => {
             formData.append('type', type);
             formData.append('image', image);
 
-            await axios.post(`${process.env.REACT_APP_BACKEND}/post/add`, formData);
+            await axios.post(`${process.env.REACT_APP_BACKEND}/post/add`, formData, {
+                withCredentials: true
+            });
             navigate('/posts');
         } catch (error) {
-            console.error(error.message);
+            console.error(error);
         }
     };
+
+    useEffect(() => {
+        console.log('hello', user);
+    });
 
     return (
         <section>
@@ -52,6 +61,7 @@ const PostForm = ({ onSubmit }) => {
                         onChange={(e) => setImage(e.target.files[0])}
                     />
                     <button type="submit">Post</button>
+
                 </form>
             </div>
         </section>

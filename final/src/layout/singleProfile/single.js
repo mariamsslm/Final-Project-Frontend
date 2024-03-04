@@ -58,18 +58,39 @@ const SingleProfile = () => {
 
     const handleSave = async () => {
         try {
+            // Initialize form data
+            const formData = new FormData();
+    
+            // Add updated user data to form data
+            formData.append('name', editedData.name);
+            formData.append('bio', editedData.bio);
+            formData.append('email', editedData.email);
+            formData.append('phone', editedData.phone);
+    
+            // Check if new image is selected
             if (newImage) {
-                const formData = new FormData();
+                // Add new image to form data
                 formData.append('image', newImage);
-                await axios.put(`${process.env.REACT_APP_BACKEND}/user/uploadImage/${_id}`, formData);
             }
-            await axios.put(`${process.env.REACT_APP_BACKEND}/user/update/${_id}`, editedData);
-            setData(editedData);
-            setEditMode(false);
+    
+            // Send PUT request to update user data and image
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND}/user/update/${_id}`, formData);
+    
+            // Check if request was successful
+            if (response.status === 200) {
+                // Update local state with edited data
+                setData(editedData);
+                setEditMode(false);
+            } else {
+                // Handle error if request fails
+                console.error('Error saving edited data:', response.statusText);
+            }
         } catch (error) {
+            // Handle any network or server errors
             console.error('Error saving edited data:', error);
         }
     };
+    
 
     const handleDelete = async () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this profile?');
@@ -119,10 +140,11 @@ const SingleProfile = () => {
                                         data.name
                                     )}
                                 </h2>
+                                Bio :{' '}
                                 <p>
-                                    Bio :{' '}
+                                    
                                     {editMode ? (
-                                        <input className={style.textarea} type="textarea" name="bio" value={editedData.bio} onChange={handleChange} />
+                                        <textarea className={style.textarea} type="textarea" name="bio" value={editedData.bio} onChange={handleChange} />
                                     ) : (
                                         data.bio
                                     )}
@@ -161,14 +183,14 @@ const SingleProfile = () => {
                     </div>
                 </div>
             </article>
-            <article>
-            <div>
-                <p>kjfftrvubjv</p>
+           
+            <div className={style.posts}>
+                
             {posts.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}
         </div>
-            </article>
+           
             
             
             

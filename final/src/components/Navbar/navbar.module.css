@@ -198,12 +198,12 @@ header.sticky{
         color: #ffa343;
         transform: translateX(-20px); /* Adjust position when open */
     }
-    .right a:first-child{
-        color: #fff;
-        font-size: 0.7rem;
-        font-weight: 600;
-        margin-right: 20px;
+
     
+    
+    .right .logout{
+        font-size: 0.7rem;
+        padding-right:  20px;
     }
 }
 

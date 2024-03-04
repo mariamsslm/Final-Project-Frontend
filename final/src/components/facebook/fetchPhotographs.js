@@ -21,11 +21,11 @@ const FacebookPhotographs=()=>{
     }, []);
 
     return (
-        <div>
+        <section>
             {photographs.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}
-        </div>
+        </section>
     );
 };
 export default FacebookPhotographs; 

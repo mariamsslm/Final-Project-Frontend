@@ -10,14 +10,14 @@
     width: 100px;
     height: 100px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    
     border-radius: 50%;
     cursor: pointer;
     background: white;
     transition: transform 0.5s; 
 }
 .image:hover{
-    transform: scale(0.8)
+    transform: scale(0.9)
 }
 .image i {
     width: 100%;
@@ -32,6 +32,7 @@
 
 
  h4{
+    margin-top: 10px;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
@@ -40,4 +41,20 @@
  h4:hover{
     color: #ffa343;
 
+}
+@media(max-width:500px){
+    .image{
+        width: 50px;
+        height: 50px;
+
+    }
+    .image i {
+        width: 50%;
+        height: 50%;
+        display: block;
+        color: black;
+        text-align: center;
+        font-size: 3rem;
+        /* transition: transform 0.9s;  */
+    }
 }

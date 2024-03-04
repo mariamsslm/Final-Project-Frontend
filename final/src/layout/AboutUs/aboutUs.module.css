@@ -1,17 +1,20 @@
-section{
+/* section{
     padding: 70px 17% 60px;
-}
+    overflow: hidden;
+} */
 .home{
     
     position: relative;
     height: 100vh;
     width: 100%;
+    margin:0 auto ;
     background-image:linear-gradient(to left, rgba(0,0,0,0.6),rgba(0,0,0,0.3)),url(../../assets/Final\ image_0.jpg);
     background-size: cover;
     background-position: bottom center;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    overflow: hidden;
 }
 .text{
     text-align: left;
@@ -26,11 +29,12 @@ section{
     color: #ffa343;
 }
 .text h1{
-    font-size: 6rem;
+    font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
-    width: 685px;
+    width: 620px;
+    overflow: hidden;
 }
 .text p{
     font-size: 1rem;
@@ -57,17 +61,35 @@ section{
     background: transparent;
     color: #fff;
 }
-@media(max-width:1200px){
+@media(max-width:500px){
     .home{
-        height: 90vh;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    width: 100%;
+   
+    overflow: hidden;
+}
+.text p{
+    font-size: 1rem;
+}
+.text h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 200px;
+}
     }
-    section{
-        padding: 45px 5% 35px
-    }
-    .text h1{
-        font-size: 2rem
-    }
+  
+    /* .text h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        width: 200px;
+    } */
     .text p{
         font-size: 1rem;
     }
-}
+
+    
+

@@ -87,7 +87,7 @@ const Filter = () => {
                     >
                         Old Posts
                     </button>
-                    <button
+                    {/* <button
                         style={{
                             backgroundColor: activeFilter === 'likes' ? '#ffffffab' : 'transparent',
                             color: activeFilter === 'likes' ? '#000' : '#fff'
@@ -95,7 +95,7 @@ const Filter = () => {
                         onClick={() => handleClick('likes')}
                     >
                         Number of Likes
-                    </button>
+                    </button> */}
                 </div>
             )}
         </div>

@@ -4,11 +4,13 @@
     width: 100%;
     background-color: #e7db98;
     padding: 70px 0 60px;
+    overflow: hidden;
    
 }
 
 .slide {
     width: max-content;
+    overflow: hidden;
 }
 
 .item {
@@ -34,6 +36,7 @@
     width: 100%;
     height: 100%;
     box-shadow: none;
+    
 }
 
 .item:nth-child(2) {
@@ -161,13 +164,16 @@
         left: 35%;
     }
     .item{
+        width: 200px;
+        height: 250px;
         display: flex;
         flex-direction: column;
     }
     .item .content {
         position: absolute;
+
         top: 30%;
-        right: 190px;
+        right: 80px;
         width: 300px;
         text-align: left;
         padding: 0;
@@ -176,12 +182,10 @@
         display: none;
     }
     .item h2 {
-        font-size: 2rem; /* Adjust h2 font size for smaller screens */
+        font-size: 1.5rem; /* Adjust h2 font size for smaller screens */
     }
     .item p {
-        font-size: 1em; /* Adjust p font size for smaller screens */
+        font-size: 0.7em; /* Adjust p font size for smaller screens */
     }
-    .item .btn {
-        font-size: 0.8em; /* Adjust button font size for smaller screens */
-    }
+   
 }

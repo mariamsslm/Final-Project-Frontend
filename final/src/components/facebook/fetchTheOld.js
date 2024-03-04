@@ -21,11 +21,11 @@ const PostsOldPost=()=>{
     }, []);
 
     return (
-        <div>
+        <section>
             {posts.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}
-        </div>
+        </section>
     );
 };
 export default PostsOldPost; 

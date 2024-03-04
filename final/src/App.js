@@ -9,47 +9,47 @@ import LoadingPage from './pages/loadingPage';
 
 
 
-// const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 
  function App() {
-//   const { user, setUser, fetchUserDataone } = useContext(AuthContext);
-//   const [loading, setLoading] = useState(true);
+  const { user, setUser, fetchUserDataone } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
 
-//   async function getUser() {
-//     try {
-//       const res = await axios.get(
-//         `${process.env.REACT_APP_BACKEND}user/getone`
-//       );
-//       console.log(res);
-//       if (res) {
-//         console.log(res);
-//         console.log("user from app", res);
-//         setUser(res.data.data);
-//       }
-//     } catch (error) {
-//       console.error("Error fetching user:", error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   }
+  async function getUser() {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND}user/getone`
+      );
+      console.log(res);
+      if (res) {
+        console.log(res);
+        console.log("user from app", res);
+        setUser(res.data.data);
+      }
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
-//   useEffect(() => {
-//     fetchUserDataone();
-//   }, []);
-//   useEffect(() => {
-//     getUser();
-//   }, []);
-//   if (loading) {
-//     return <LoadingPage />;
-//   }
+  useEffect(() => {
+    fetchUserDataone();
+  }, []);
+  useEffect(() => {
+    getUser();
+  }, []);
+  if (loading) {
+    return <LoadingPage />;
+  }
   return (
-    // <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       
       <div className="App">
         <AppRoutes />
       </div>
-    // </QueryClientProvider>
+    </QueryClientProvider>
   );
 }
 
