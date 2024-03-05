@@ -120,7 +120,7 @@ const Login = () => {
         <section className={style.container}>
           <div className={style.return}>
             <Link to='/'>
-              <i class="ri-expand-left-fill" style={{color:'white'}}>Home</i>
+              <i class="ri-expand-left-fill" >Home</i>
                 
             </Link>
             </div>
@@ -151,17 +151,19 @@ const Login = () => {
                         </div>
                     </div>
                     <div className={style.btn}>
-                        <input type='submit' value='Login' />
+                        <input type='submit' value='Signin' />
                     </div>
                 </form>
-            </article>
-            <div className={style.toggle}>
+                <div className={style.toggle}>
+                  <p>You don't have an account</p>
                 <Link to='/signup'>
                     <p className={style.toggleButton} onClick={toggleForm}>
                         {isSignUp ? 'Sign In' : 'Sign Up'}
                     </p>
                 </Link>
             </div>
+            </article>
+          
         </section>
     );
 };

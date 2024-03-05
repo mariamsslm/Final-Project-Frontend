@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import style from "../facebook/facebook.module.css";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
+import { Link } from "react-router-dom";
 
 const FacebookPost = ({ post }) => {
   const [editedPost, setEditedPost] = useState({ ...post });

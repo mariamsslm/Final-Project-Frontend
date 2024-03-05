@@ -57,3 +57,8 @@ section{
     border: 2px solid #fff;
     background: transparent;
     color: #fff;}
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }

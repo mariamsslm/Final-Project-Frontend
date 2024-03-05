@@ -32,10 +32,11 @@
 
 }
 .images img{
-    padding: 10px;
-  margin: 10px auto;
-    width: 30%;
-    height: auto;
+  border-radius: 10px;
+    padding: 3px;
+  margin: 2px auto;
+    width: 450px;
+    height: 400px;
     
 }
 

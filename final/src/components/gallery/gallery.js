@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios'
 import style from '../gallery/gallery.module.css';
+import imagee from '../../assets/item1.jpg'
 
 
 const Gallery = () => {
@@ -38,7 +39,9 @@ const Gallery = () => {
         };
         fetchPosts();
     }, []);
+   
 
+    
     return (
         <section className={style.container}>
             <div className={style.header}>
@@ -46,7 +49,9 @@ const Gallery = () => {
             </div>
             <div className={style.box}>
                 <div className={style.images}>
+                   
                     {images.map((image, index) => (
+                       
                         <img
                             key={index}
                             src={`${process.env.REACT_APP_BACKEND}/images/${image.image}`}
@@ -62,7 +67,7 @@ const Gallery = () => {
                     <span className={style.close} onClick={handleClose}>
                         &times;
                     </span>
-                    <img src={`${process.env.REACT_APP_BACKEND}/images/${images[currentIndex].image}`} alt={`Image ${currentIndex + 1}`} />
+                    <img src={`${process.env.REACT_APP_BACKEND}/images/${images[currentIndex].image}`} alt={images._id} />
                     <div className={style.prev} onClick={handlePrev}>
                         &#10094;
                     </div>

@@ -10,13 +10,15 @@ header{
     align-items: center;
     justify-content: space-between;
     transition: all .50s ease;
-
 }
-.active{
-    border-bottom: 2px solid #fff; 
+.navbar .navLink.active {
+    border-bottom: 2px solid #fff
+  }
+  .active__link{
+    border-bottom: 3px solid #fff;
     
-
-}
+  }
+  
 header.sticky{
     padding: 8px 17%;
     background: transparent;
@@ -35,7 +37,7 @@ header.sticky{
 }
 .navbar  a{
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin: 15px 22px;
 }
@@ -48,14 +50,14 @@ header.sticky{
 }
 .right a:first-child{
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-right: 20px;
 
 }
 .right a{
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #fff;
     margin-right: 18px;
     margin-left: 5px;
@@ -98,6 +100,97 @@ header.sticky{
         padding:50px 8% 40px
     }
 }
+
+@media(max-width:940px){
+    header{
+        padding:17px 7% ;
+    }
+    section{
+        padding:30px 6% 20px
+    }
+    .logo{
+        font-size: 20px;
+        color: #fff;
+        font-weight: 600;
+    }
+    .navbar  a{
+        color: #fff;
+        font-size:15px;
+        font-weight: 500;
+        margin: 15px 22px;
+    }
+    .right a{
+        vertical-align: middle;
+        font-size: 15px;
+        color: #fff;
+        margin-right: 18px;
+        margin-left: 5px;
+        transition: all .50s  ease;
+    }
+    .right a:first-child{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        margin-right: 20px;
+    
+    }
+
+}
+
+@media(max-width:800px){
+    header{
+        padding:10px 4% ;
+    }
+    section{
+        padding:30px 4% 20px
+    }
+    .logo{
+        font-size: 20px;
+        color: #fff;
+        font-weight: 600;
+    }
+    .navbar  a{
+        color: #fff;
+        font-size:12px;
+        font-weight: 500;
+        margin: 15px 22px;
+    }
+    .right a{
+        vertical-align: middle;
+        font-size: 12px;
+        color: #fff;
+        margin-right: 18px;
+        margin-left: 5px;
+        transition: all .50s  ease;
+    }
+    .right a:first-child{
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 20px;
+    
+    }
+
+}
+@media(max-width:665px)and (min-width:501px){
+    .logo{
+        font-size: 13px;
+    }
+    .navbar  a{
+        color: #fff;
+        font-size:10px;
+        font-weight: 500;
+        margin: 15px 15px;
+    }
+    .right a:first-child{
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        margin-right: 5px;
+    
+    }
+
+}
 @media(max-width:500px) {
 
     .logo{
@@ -107,6 +200,7 @@ header.sticky{
     }
     header {
         padding: 14px 5%;
+        
       
     }
 
@@ -130,6 +224,7 @@ header.sticky{
         left: -100%; /* Start offscreen */
         display: flex;
         flex-direction: column;
+        align-items: center;
         background: #000;
         transition: left 0.50s ease; /* Add transition */
     }
@@ -143,10 +238,10 @@ header.sticky{
     }
 
     .navbar a{
+        width: 70px;
         display: block;
         color: #979797;
         padding: 0;
-        margin: 0px 0px 40px 0px;
         font-size: 15px;
         font-weight: 400;
     }
@@ -168,14 +263,14 @@ header.sticky{
     .right a:first-child {
         color: #fff;
         font-size: 12px;
-        margin-right: 20px;
+        margin-right: 0;
     }
 
     .right a {
         vertical-align: middle;
         font-size: 15px;
         color: #fff;
-        margin-right: 18px;
+        margin-right: 5px;
         margin-left: 5px;
         transition: all .50s ease;
     }
@@ -186,13 +281,7 @@ header.sticky{
     }
 
  
-    .menu {
-        margin-top: 5px;
-        color: #fff;
-        font-size: 20px;
-        cursor: pointer;
-        display: block;
-    }
+   
 
     .menu.open {
         color: #ffa343;
@@ -205,5 +294,8 @@ header.sticky{
         font-size: 0.7rem;
         padding-right:  20px;
     }
+}
+@media(max-width:287px){
+
 }
 

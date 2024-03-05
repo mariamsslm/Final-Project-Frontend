@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom'; // Import useLocation
 import style from '../Navbar/navbar.module.css';
 import { AuthContext } from '../../context/authContext';
 
@@ -7,11 +7,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('/');
-
-  const handleSetActiveLink = (link) => {
-    setActiveLink(link);
-  };
+  const location = useLocation(); // Use useLocation to get location
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,37 +22,34 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen(prevState => !prevState); // Toggle the isOpen state
+    setIsOpen(prevState => !prevState);
   };
 
   return (
     <header className={`${style.header} ${isSticky ? style.sticky : ''}`}>
-      <Link to='/' className={style.logo}>Art<span className={style.span}>mood</span></Link>
-      <ul className={`${style.navbar} ${isOpen ? style.open : ''}`}>
+      <NavLink to='/' className={style.logo}>Art<span className={style.span}>mood</span></NavLink>
+      <ul className={`${style.navbar} ${isOpen ? style.open : ''}`} >
         <li>
-          <Link to='/' className={activeLink === '/' ? style.active : ''} onClick={() => handleSetActiveLink('/')}>Home</Link>
+          <NavLink exact to='/' className={location.pathname === "/" ? style.active__link : ""} onClick={toggleMenu}>Home</NavLink>
         </li>
         <li>
-          <Link to='/posts' className={activeLink === '/posts' ? style.active : ''} onClick={() => handleSetActiveLink('/posts')}>
-            Posts
-          </Link>
+          <NavLink to='/posts' className={location.pathname === "/posts" ? style.active__link : ""} onClick={toggleMenu}>Posts</NavLink>
         </li>
         <li>
-          <Link to='/about' className={activeLink === '/about' ? style.active : ''} onClick={() => handleSetActiveLink('/about')}>
-            About Us
-          </Link>
+          <NavLink to='/about' className={location.pathname === "/about" ? style.active__link : ""} onClick={toggleMenu}>About Us</NavLink>
         </li>
         <li>
-          <Link to='/profil' className={activeLink === '/profil' ? style.active : ''} onClick={() => handleSetActiveLink('/profil')}>
-            Portfolio
-          </Link>
+          <NavLink to='/profil' className={location.pathname === "/profil" ? style.active__link : ""}onClick={toggleMenu}>Artists</NavLink>
+        </li>
+        <li>
+          <NavLink to='/gallery'className={location.pathname === "/gallery" ? style.active__link : ""} onClick={toggleMenu}>Gallery</NavLink>
         </li>
       </ul>
       <div className={style.right}>
         {user ? (
-          <button className={style.logout} onClick={logout}>Logout</button>
+          <NavLink to='/login' className={style.logout} onClick={logout}>Logout</NavLink>
         ) : (
-          <Link to='/login'>Join</Link>
+          <NavLink to='/login'>Signin</NavLink>
         )}
         <a href='https://web.whatsapp.com/#'><i className="ri-whatsapp-fill"></i></a>
         <a href='#'><i className="ri-instagram-fill"></i></a>

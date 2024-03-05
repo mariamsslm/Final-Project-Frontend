@@ -88,7 +88,7 @@ const Signup = () => {
         <section className={style.container}>
             <div className={style.return}>
             <Link to='/'>
-              <i class="ri-expand-left-fill" style={{color:'white'}}>Home</i>
+              <i class="ri-expand-left-fill">Home</i>
                 
             </Link>
             </div>
@@ -157,16 +157,18 @@ const Signup = () => {
                         </div>
                     </div>
                     <div className={style.btn}>
-                        <input type='submit' value='Add' disabled={loading} />
+                        <input type='submit' value='Singup' disabled={loading} />
                     </div>
                 </form>
-            </article>
-
-            <div className={style.toggle}>
+                <div className={style.toggle}>
+                    <p>If you have an account</p>
                 <Link to='/login'>
                     <p className={style.toggleButton} onClick={toggleForm}>{isSignUp ? 'Sign In' : 'Sign Up'}</p>
                 </Link>
             </div>
+            </article>
+
+          
         </section>
     );
 };

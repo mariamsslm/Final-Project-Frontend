@@ -60,7 +60,11 @@ const PostForm = () => {
                         type="file"
                         onChange={(e) => setImage(e.target.files[0])}
                     />
+                    <div className={style.buttons}>
                     <button type="submit">Post</button>
+                    <button type="button" onClick={() => navigate('/posts')}>Cancel</button>
+                    </div>
+                    
 
                 </form>
             </div>

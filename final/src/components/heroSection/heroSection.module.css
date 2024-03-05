@@ -56,6 +56,7 @@ section{
     background: transparent;
     color: #fff;
 }
+
 @media(max-width:500px){
     .home{
         height: 90vh;
@@ -84,4 +85,20 @@ section{
         transition: all .50s ease;
         cursor: pointer;
     }
+}
+@media(max-width:275px){
+    section{
+        padding: 10px 0 10px;
+    }
+    .text h5{
+        font-size: 8px;
+    }
+    .text h1{
+        font-size: 0.5rem;
+        
+    }
+    .text p{
+        font-size: 0.5rem;
+    }
+    
 }

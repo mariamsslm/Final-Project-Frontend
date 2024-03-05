@@ -8,7 +8,7 @@ const Hero=()=>{
                 <h5>Let's </h5>
                 <h1>Creating your own Art</h1>
                 <p>Unlock Your Creative Potential</p>
-                <a href='/signup' className={style.btn} >Get Started</a>
+                <a href='/posts' className={style.btn} >Get Started</a>
             </div>
           
 
