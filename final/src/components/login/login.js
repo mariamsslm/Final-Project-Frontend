@@ -6,6 +6,7 @@ import axios from 'axios'
 import { AuthContext } from '../../context/authContext';
 
 const Login = () => {
+  const [showPopup, setShowPopup] = useState(false);
 
     const {setUser, fetchUserData, fetchUserDataone ,user } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ const Login = () => {
         email: '',
         password: '',
     });
+
+ 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -71,18 +74,20 @@ const Login = () => {
           });
           setUser(res.token.data.role);
           console.log("user:", user);
-          console.log("resis", res);
           console.log("role", res.token.data.role);
-          console.log("call auth");
+
           // fetchUserData();
           fetchUserDataone();
+          setShowPopup(true)
           console.log('loged successfule');
           setIsPending(false);
+          
           if (res.token.data.role === "admin") {
             navigate("/dashboard");
           } else if (res.token.data.role === "user") {
             navigate("/");
-        }} 
+        }
+        } 
         catch (error) {
           if (error.response && error.response.data && error.response.data.errors) {
             const { errors } = error.response.data;
@@ -163,6 +168,14 @@ const Login = () => {
                 </Link>
             </div>
             </article>
+            {showPopup && (
+                <div className={style.popup}>
+                    <div className={style.popupContent}>
+                        <h2>Login Successful!</h2>
+                        <button onClick={() => setShowPopup(false)}>Close</button>
+                    </div>
+                </div>
+            )}
           
         </section>
     );

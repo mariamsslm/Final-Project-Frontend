@@ -10,8 +10,7 @@ import Login from '../components/login/login'
 import Signup from '../components/signup/signup'
 import GalleryPage from '../pages/gallery'
 import PostForm from '../components/FormPost/AddPost/addPost'
-import Sidebar from '../pages/dashboard'
-import Overview from '../components/Dashboard/overview/overview'
+// import Sidebar from '../pages/dashboard'
 import SingleProfile from '../layout/singleProfile/single'
 import EditForm from '../components/FormPost/EditPost/editPost'
 import ProtectedRoute from '../routes/potectedRoute'
@@ -19,6 +18,8 @@ import AllProfile from '../pages/AllProfiles'
 import LayoutWithSidebar from './withSideBar'
 import PostTable from '../components/dashboard/tableUser' 
 import UserTable from '../components/dashboard/user/userTable'
+import Navbar from '../components/Navbar/navbar'
+import Overview from '../components/dashboard/overview/overview'
 // import  UserTable from '../components/dashboard/tableUser'
 
 
@@ -53,6 +54,10 @@ function AppRoutes() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path='/add' element={<PostForm/>} />
+        <Route path="/nav" element={<Navbar/>}></Route>
+        {/* <Route path="/dodo" element={<Overview/>}></Route> */}
+
+
         
 
 
@@ -65,6 +70,18 @@ function AppRoutes() {
           
             <LayoutWithSidebar>
               {" "}
+              <Overview/>
+             
+            </LayoutWithSidebar>
+          
+        }
+      ></Route>
+        <Route
+        path="/postTable"
+        element={
+          
+            <LayoutWithSidebar>
+              {" "}
               <PostTable/>
              
             </LayoutWithSidebar>
@@ -72,7 +89,7 @@ function AppRoutes() {
         }
       ></Route>
       <Route
-        path="userTable"
+        path="/userTable"
         element={
           
             <LayoutWithSidebar>

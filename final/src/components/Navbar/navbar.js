@@ -47,7 +47,7 @@ const Navbar = () => {
       </ul>
       <div className={style.right}>
         {user ? (
-          <NavLink to='/login' className={style.logout} onClick={logout}>Logout</NavLink>
+          <NavLink to='/' className={style.logout} onClick={logout}>Logout</NavLink>
         ) : (
           <NavLink to='/login'>Signin</NavLink>
         )}

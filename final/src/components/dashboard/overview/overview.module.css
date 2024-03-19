@@ -1,0 +1,101 @@
+.main{
+    position: absolute;
+    width: calc(100% - 260px);
+    left: 260px;
+    
+   
+}
+.cards{
+    width: 100%;
+    padding: 35px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   gap:30px ;
+    
+}
+.cards .card{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1b1818;
+    border-radius: 5px;
+    height: 200px;
+}
+
+.content .number{
+    font-size: 45px;
+    font-weight: 500;
+    color: #ffa343;
+}
+.content .name{
+    font-size: 25px;
+    font-weight: 600;
+
+}
+.icon{
+    font-size: 45px;
+
+}
+.charts{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    width: 100%;
+    padding: 40px;
+    padding-top: 0;
+
+}
+.chart{
+    background: #1b1818;
+    padding: 20px ;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.chart h2{
+    margin-bottom: 10px;
+    color: #666;
+    text-align: center;
+}
+@media (max-width:1115px){
+    .main{
+        left: 60px;
+        width: calc(100% - 60px);
+        overflow-x: hidden;
+    }
+}
+@media (max-width:880px){
+    .main{
+        overflow-x: hidden;
+    }
+    .cards{
+        grid-template-columns: repeat(2, 1fr);   
+    }
+    .charts{
+        
+        grid-template-columns: 1fr;
+        
+    }
+   
+   
+    /* .chart .donut{
+        padding:30px ;
+    } */
+}
+@media (max-width:500px){
+    .cards{
+        grid-template-columns: 1fr;   
+    }
+    .chart{
+       
+        overflow: hidden;
+       
+    }
+  
+    /* .chart .donut{
+        padding:10px ;
+    } */
+
+
+}
