@@ -47,7 +47,7 @@ const FacebookPost = ({ post }) => {
     if (confirmDelete) {
       try {
         await axios.delete(
-          `${process.env.REACT_APP_BACKEND}/post/delete/${post._id}`
+          `${process.env.REACT_APP_BACKEND}/post/deleteUserPost/${post._id}`
         );
         window.location.href = "/posts";
       } catch (error) {
@@ -81,19 +81,25 @@ const FacebookPost = ({ post }) => {
     try {
       const formData = new FormData();
       formData.append("description", editedPost.description);
-      formData.append("image", imageFile); // Append the edited image file
+      formData.append("image", imageFile);
+
       await axios.put(
-        `${process.env.REACT_APP_BACKEND}/post/update/${post._id}`,
-        formData
+        `${process.env.REACT_APP_BACKEND}/post/edit/${post._id}`,
+        formData,
+        {
+          withCredentials: true,
+        }
       );
+
       setIsEditing(false);
-      console.log("the post update successfly");
+      console.log("The post was updated successfully");
     } catch (error) {
       console.error("Error updating post:", error);
-      // Optionally, set an error state to display an error message to the user
       setError("Error updating post. Please try again.");
     }
   };
+ 
+  
 
   const fetchLikesInfo = async () => {
     console.log(`${process.env.REACT_APP_BACKEND}/like/get/${post._id}`);

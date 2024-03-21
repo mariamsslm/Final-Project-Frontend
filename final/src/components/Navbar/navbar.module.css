@@ -92,6 +92,7 @@ header.sticky{
     cursor: pointer;
     z-index: 10001;
     display: none;
+    overflow: hidden;
 }
 
 @media(max-width:1700px){
@@ -167,6 +168,9 @@ header.sticky{
     }
     section{
         padding:30px 4% 20px
+    }
+    header.sticky {
+        padding: 7px 5%;
     }
     .logo{
         font-size: 20px;
@@ -309,6 +313,7 @@ header.sticky{
         display: block;
         font-size: 1.2rem;
         margin-top: 3px;
+        overflow: hidden;
    }
 
     .menu.open {
@@ -335,6 +340,7 @@ header.sticky{
         display: block;
         font-size: 0.7rem;
         margin-top: 3px;
+        overflow: hidden;
    }
 
     

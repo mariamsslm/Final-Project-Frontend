@@ -148,10 +148,10 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
 
 }
 .popup {
-    width: 300px;
+    width: 500px;
     height: 500px;
     position: fixed;
-    top: 50px; /* Adjust this value to position the popup vertically */
+    top: 50px; 
     left: 50%;
     transform: translateX(-50%);
     background-color: #ffffff;

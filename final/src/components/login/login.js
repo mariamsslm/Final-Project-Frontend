@@ -78,9 +78,11 @@ const Login = () => {
 
           // fetchUserData();
           fetchUserDataone();
-          setShowPopup(true)
+          
           console.log('loged successfule');
+
           setIsPending(false);
+          setShowPopup(true)
           
           if (res.token.data.role === "admin") {
             navigate("/dashboard");

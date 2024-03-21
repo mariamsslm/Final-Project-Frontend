@@ -25,7 +25,7 @@ const Portfoli= () => {
 
     return (
        
-        <div className={style.profile}>
+        <section >
             <div className={style.text}>
                 <h2>New Artists</h2>
             </div>
@@ -41,7 +41,7 @@ const Portfoli= () => {
                         </Link>
                     ))}
             </div>
-        </div>
+        </section>
        
     );
 };

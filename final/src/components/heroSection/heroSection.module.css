@@ -1,11 +1,13 @@
+
 section{
-    padding: 70px 17% 60px;
-}
-.home{
+    width: 100%;
+    margin: 0 auto;
     overflow: hidden;
     position: relative;
+   
+}
+.home{
     height: 100vh;
-    width: 100%;
     background-image:linear-gradient(to left, rgba(0,0,0,0.6),rgba(0,0,0,0.3)),url(../../assets/hero.jpg);
     background-size: cover;
     background-position: bottom center;
@@ -13,6 +15,7 @@ section{
     align-items: center;
     justify-content: flex-start;
 }
+
 .text{
     text-align: left;
 }
@@ -57,18 +60,33 @@ section{
     color: #fff;
 }
 
+@media(max-width:1280px){
+    .text h1{
+        font-size: 2.5rem;
+    }
+
+
+}
+@media(max-width:768px){
+    .text h1{
+        font-size: 2rem;
+    }
+
+}
+
 @media(max-width:500px){
     .home{
         height: 90vh;
-    }
-    section{
+        overflow: hidden;
         padding: 45px 5% 35px
     }
+  
     .text h5{
         font-size: 10px;
     }
     .text h1{
-        font-size: 1.5rem
+        font-size: 1.5rem;
+        width: 200px;
     }
     .text p{
         font-size: 0.7rem;
@@ -86,9 +104,12 @@ section{
         cursor: pointer;
     }
 }
-@media(max-width:275px){
-    section{
-        padding: 10px 0 10px;
+@media(max-width:284px){
+    
+    .home{
+        background-position: cover;
+
+
     }
     .text h5{
         font-size: 8px;
@@ -100,5 +121,6 @@ section{
     .text p{
         font-size: 0.5rem;
     }
+
     
 }
