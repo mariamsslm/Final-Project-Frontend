@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { usePostContext } from '../../context/PostContext';
 import style from '../filter/filter.module.css';
+import { Link } from "react-router-dom";
+
+
 
 const Filter = () => {
-    const {handleSwitchSectionClick, handleSwitchDrawingClick, handleSwitchPhotographClick, handleSwitchWritingClick,handleSwitchOldClick } = usePostContext();
-    const [showOptions, setShowOptions] = useState(false); // State to control whether options are shown or hidden
-    const [activeFilter, setActiveFilter] = useState('all'); // State to keep track of the active filter, default to 'all'
+    const { handleSwitchSectionClick, handleSwitchDrawingClick, handleSwitchPhotographClick, handleSwitchWritingClick, handleSwitchOldClick } = usePostContext();
+    const [activeFilter, setActiveFilter] = useState('all');
 
     const handleClick = (filterType) => {
         if (activeFilter === filterType) {
-            setActiveFilter('all'); // Toggle off if the same filter is clicked again
+            setActiveFilter('all');
         } else {
-            setActiveFilter(filterType); // Set the active filter
-            // Call the appropriate context function based on the filter type
+            setActiveFilter(filterType);
             switch (filterType) {
                 case 'all':
                     handleSwitchSectionClick();
@@ -26,9 +27,9 @@ const Filter = () => {
                 case 'drawings':
                     handleSwitchDrawingClick();
                     break;
-                    case 'oldPosts':
-                        handleSwitchOldClick();
-                        break;
+                case 'oldPosts':
+                    handleSwitchOldClick();
+                    break;
                 default:
                     break;
             }
@@ -36,69 +37,37 @@ const Filter = () => {
     };
 
     return (
-        <div className={style.filter}>
-            <div className={style.filterIcon} onClick={() => setShowOptions(!showOptions)}>
-                Filter <i className="ri-filter-line"></i>
+        <section className={style.filter}>
+            <div className={style.filterOptions}>
+                <button
+                    className={`${style.btn} ${activeFilter === 'all' ? style.active : style.inactive}`}
+                    onClick={() => handleClick('all')}
+                >
+                    All Posts
+                </button>
+                <button
+                    className={`${style.btn} ${activeFilter === 'photographs' ? style.active : style.inactive}`}
+                    onClick={() => handleClick('photographs')}
+                >
+                    Photographs
+                </button>
+                <button
+                    className={`${style.btn} ${activeFilter === 'writings' ? style.active : style.inactive}`}
+                    onClick={() => handleClick('writings')}
+                >
+                    Writings
+                </button>
+                <button
+                    className={`${style.btn} ${activeFilter === 'drawings' ? style.active : style.inactive}`}
+                    onClick={() => handleClick('drawings')}
+                >
+                    Drawings
+                </button>
+                <Link to="/add">
+                <button className={style.btnAdd}>Add Post</button>
+                </Link>
             </div>
-            {showOptions && (
-                <div className={style.filterOptions}>
-                    <button
-                        style={{
-                            backgroundColor: activeFilter === 'all' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'all' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('all')}
-                    >
-                        All Posts
-                    </button>
-                    <button
-                        style={{
-                            backgroundColor: activeFilter === 'photographs' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'photographs' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('photographs')}
-                    >
-                        Photographs
-                    </button>
-                    <button
-                        style={{
-                            backgroundColor: activeFilter === 'writings' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'writings' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('writings')}
-                    >
-                        Writings
-                    </button>
-                    <button
-                        style={{
-                            backgroundColor: activeFilter === 'drawings' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'drawings' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('drawings')}
-                    >
-                        Drawings
-                    </button>
-                    <button
-                        style={{
-                            backgroundColor: activeFilter === 'oldPosts' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'oldPosts' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('oldPosts')}
-                    >
-                        Old Posts
-                    </button>
-                    {/* <button
-                        style={{
-                            backgroundColor: activeFilter === 'likes' ? '#ffffffab' : 'transparent',
-                            color: activeFilter === 'likes' ? '#000' : '#fff'
-                        }}
-                        onClick={() => handleClick('likes')}
-                    >
-                        Number of Likes
-                    </button> */}
-                </div>
-            )}
-        </div>
+        </section>
     );
 };
 

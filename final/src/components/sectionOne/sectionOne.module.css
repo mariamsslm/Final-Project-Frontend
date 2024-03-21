@@ -96,6 +96,15 @@
     .posts{
         gap: 1rem;
     }
+    .text h5{
+        font-size: 10px;
+    }
+    .text h2{
+        font-size: 20px;
+    }
+    .text p{
+        font-size: 0.7rem;
+    }
   
 }
 

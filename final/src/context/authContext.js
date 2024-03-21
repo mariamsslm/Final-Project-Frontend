@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
       const logout = async () => {
         try {
-          await axiosInstance.get("/user/logout");
+          await axiosInstance.post("/user/logout");
           setUser(null);
           console.log('success')
         } catch (error) {

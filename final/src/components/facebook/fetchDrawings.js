@@ -1,10 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
 import FacebookPost from './facebook';
+import loading from '../../assets/loading.gif'
+
 
 
 const FacebookDrawings=()=>{
     const [drawings, setDrawings] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
 
     useEffect(() => {
@@ -16,12 +20,22 @@ const FacebookDrawings=()=>{
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
+         finally {
+            setIsLoading(false); 
+        }
         };
         fetchPosts();
     }, []);
+    if (isLoading) {
+        return <div>
+            <img src={loading} alt='....Loading' style={{width:'100px'}}></img>
+            
+        </div>; 
+    }
 
     return (
         <section>
+
             {drawings.map((post, index) => (
                 <FacebookPost key={index} post={post} />
             ))}

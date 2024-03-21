@@ -118,7 +118,7 @@ const FacebookPost = ({ post }) => {
   }, [post._id]);
 
   return (
-    <div>
+    
       <div className={style.post}>
         <div className={style.header}>
           <img
@@ -171,18 +171,18 @@ const FacebookPost = ({ post }) => {
         <div className={style.actions}>
           <i
             className={`ri-heart-fill ${isLiked ? style.redHeart : ""}`}
-            style={{ fontSize: "2rem", fontWeight: 500, cursor: "pointer" }}
+            style={{ fontSize: "1.5rem", fontWeight: 500, cursor: "pointer" }}
             onClick={toggleLike}
           ></i>
           <div>
-            {error && <p>Error: {error}</p>}
+            
             {likesInfo && (
               <p className={style.liked}>{likesInfo.numberOfLikes}</p>
             )}
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

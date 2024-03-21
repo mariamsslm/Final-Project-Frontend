@@ -61,6 +61,41 @@
     background: transparent;
     color: #fff;
 }
+@media(max-width:1500px){
+    .text h1{
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        width: 400px;
+        overflow: hidden;
+    }
+}
+@media(max-width:1030px){
+    .text h1{
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        width: 300px;
+        overflow: hidden;
+    }
+}
+@media(max-width:800px){
+    .text h1{
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        width: 200px;
+        overflow: hidden;
+    }
+    .text h5{
+font-size: 15px;
+    }
+
+
+}
 @media(max-width:500px){
     .home{
         height: 100vh;
@@ -70,12 +105,12 @@
    
     overflow: hidden;
 }
-.text p{
-    font-size: 1rem;
+.text h5{
+    font-size: 10px;
 }
 .text h1{
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 800;
     width: 200px;
 }
     }

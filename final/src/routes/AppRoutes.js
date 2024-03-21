@@ -21,6 +21,7 @@ import UserTable from '../components/dashboard/user/userTable'
 import Navbar from '../components/Navbar/navbar'
 import Overview from '../components/dashboard/overview/overview'
 // import  UserTable from '../components/dashboard/tableUser'
+import FacebookSection from '../components/facebook/facebookSection'
 
 
 function AppRoutes() {
@@ -49,6 +50,7 @@ function AppRoutes() {
           {/* without navbar and footer */}
         <Route path="/user/:_id" element={<SingleProfile/>} />
         <Route path="/post/:_id" element={<EditForm/>} />
+        <Route path="/all" element={<FacebookSection/>} />
 
 
         <Route path="/login" element={<Login/>}></Route>

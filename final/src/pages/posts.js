@@ -19,7 +19,7 @@ const PostPage = () => {
     return (
         <div>
             <SecondHero />
-            <CreatePost />
+            {/* <CreatePost /> */}
             <Filter />
 
             {isSection && <FacebookSection />}
