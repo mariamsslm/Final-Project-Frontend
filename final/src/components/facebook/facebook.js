@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
 
 const FacebookPost = ({ post }) => {
+  // const [showPopup, setShowPopup] = useState(false);
   const [editedPost, setEditedPost] = useState({ ...post });
   const [likesInfo, setLikesInfo] = useState(null);
   const [error, setError] = useState(null);
@@ -93,6 +94,7 @@ const FacebookPost = ({ post }) => {
 
       setIsEditing(false);
       console.log("The post was updated successfully");
+      // setShowPopup(true);
     } catch (error) {
       console.error("Error updating post:", error);
       setError("Error updating post. Please try again.");
@@ -170,8 +172,8 @@ const FacebookPost = ({ post }) => {
         </div>
         <div className={style.actions}>
           <i
-            className={`ri-heart-fill ${isLiked ? style.redHeart : ""}`}
-            style={{ fontSize: "1.5rem", fontWeight: 500, cursor: "pointer" }}
+            className={`ri-heart-fill ${isLiked ? style.redHeart : ""} ${style.icon}`}
+            // style={{ fontSize: "2rem", fontWeight: 500, cursor: "pointer" }}
             onClick={toggleLike}
           ></i>
           <div>
@@ -181,6 +183,7 @@ const FacebookPost = ({ post }) => {
             )}
           </div>
         </div>
+        
       </div>
    
   );

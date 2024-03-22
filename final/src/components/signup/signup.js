@@ -5,6 +5,8 @@ import axiosInstance from '../../utils/axiosInstance';
 import { AuthContext } from '../../context/authContext';
 
 const Signup = () => {
+
+    const [showPopup, setShowPopup] = useState(false);
     const {setUser} = useContext(AuthContext)
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -57,17 +59,21 @@ const Signup = () => {
             formData.append('bio', bio);
             formData.append('phone', phone);
             formData.append('image', image);
-
+    
             const response = await axiosInstance.post("/user/signup", formData);
             setUser(response.data.token.data)
             console.log(setUser)
             console.log(response);
             console.log('success');
-            navigate("/");
+            setShowPopup(true);
+            
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
         } catch (error) {
             console.error('Error during signup:', error);
         }
-
+    
         setLoading(false);
         setName("");
         setEmail("");
@@ -95,6 +101,7 @@ const Signup = () => {
 
             <article className={style.content}>
                 <h1 className={style.title}>{isSignUp ? 'Sign Up' : 'Sign In'}</h1>
+                <div className={style.scrollableContainer}>
                 <form onSubmit={handleSubmit}>
                     <div className={style.main}>
                         <div className={style.box}>
@@ -160,13 +167,23 @@ const Signup = () => {
                         <input type='submit' value='Singup' disabled={loading} />
                     </div>
                 </form>
+               
                 <div className={style.toggle}>
                     <p>If you have an account</p>
                 <Link to='/login'>
                     <p className={style.toggleButton} onClick={toggleForm}>{isSignUp ? 'Sign In' : 'Sign Up'}</p>
                 </Link>
             </div>
+            </div>
             </article>
+            {showPopup && (
+                <div className={style.popup}>
+                    <div className={style.popupContent}>
+                        <h2>Register Successful!</h2>
+                        <button onClick={() => setShowPopup(false)}>Close</button>
+                    </div>
+                </div>
+            )}
 
           
         </section>

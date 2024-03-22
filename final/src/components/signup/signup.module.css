@@ -7,6 +7,9 @@
     background-image:linear-gradient(to left, rgba(7, 7, 7, 0.6),rgba(3, 3, 3, 0.3)),url(../../assets/im.jpg);
     background-size: cover;
 }
+.scrollableContainer::-webkit-scrollbar {
+    display: none;
+}
 
 .content {
     width: 100%;
@@ -147,8 +150,49 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
     color: #ffa343;
 
 }
+.popup {
+   
+    position: fixed;
+    top: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 999;
+}
+
+.popupContent {
+    text-align: center;
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+}
+
+.popup button {
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* .popup button:hover {
+    background-color: #0056b3;
+} */
+
+
 
 @media(max-width:600px) {
+    .scrollableContainer {
+        max-height: 500px; 
+        overflow-y: auto;
+    }
+    .title {
+        font-size: 20px;}
     .container {
         min-width: 200px;
     }
@@ -162,4 +206,117 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
         justify-content: space-between;
 
     }
+    .box input {
+      
+        width: 100%;
+        max-width: 200px;
+        padding: 0 10px;
+        font-size: 0.7rem;
+        
+    }
+    .box textarea {
+      
+        width: 100%;
+        max-width: 200px;
+        height: 100%;
+    max-height: 200px;
+   font-size: 0.7rem;
+   
+  
+       
+        
+    }
+    .btn input {
+        padding: 10px 30px;
+        font-size: 15px;
+      
+    }
+    .toggle p{
+       font-size: 10px;
+    }
+    
+    .toggleButton {
+       
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .return i{
+      
+        padding: 10px;
+        font-size: 1rem;
+        
+    }
+}
+@media(max-width:300px) {
+    .scrollableContainer {
+        max-height: 400px; 
+        overflow-y: auto;
+    }
+    .title {
+        font-size: 20px;}
+    .container {
+        min-width: 200px;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .box:nth-child(2n) {
+        justify-content: space-between;
+
+    }
+    .box input {
+      
+        width: 100%;
+        max-width: 100px;
+        padding: 0 10px;
+        font-size: 0.7rem;
+        height: 5vh;
+        
+    }
+    .box textarea {
+      
+        width: 100%;
+        max-width: 100px;
+        height: 100%;
+    max-height: 200px;
+   font-size: 0.7rem;
+   
+    padding: 10px 10px;
+       
+        
+    }
+   
+    .btn input {
+        padding: 5px 10px;
+        font-size: 15px;
+      
+    }
+    .toggle p{
+       font-size: 10px;
+    }
+    
+    .toggleButton {
+       
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .return i{
+      
+        padding: 10px;
+        font-size: 1rem;
+        
+    }
+}
+@media(max-width:1300px) {
+    .box input{
+        height: 6vh;
+    }
+    .scrollableContainer {
+        max-height: 400px; 
+        overflow-y: auto;
+    }
+
 }

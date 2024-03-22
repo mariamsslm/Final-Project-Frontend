@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import style from '../../layout/singleProfile/single.module.css';
 import { useParams } from 'react-router-dom';
-import FacebookPost from '../../components/facebook/facebook'
+import FacebookPost from '../../components/facebook/facebook';
 import axios from 'axios';
 
 const SingleProfile = () => {
@@ -10,25 +10,23 @@ const SingleProfile = () => {
     const [editMode, setEditMode] = useState(false);
     const [editedData, setEditedData] = useState(null);
     const [newImage, setNewImage] = useState(null);
-    const [posts , setPosts] = useState([])
-   
+    const [posts, setPosts] = useState([]);
+    const [showUnauthorizedPopup, setShowUnauthorizedPopup] = useState(false);
+    const [showUpdateSuccessPopup, setShowUpdateSuccessPopup] = useState(false);
+    const [error, setError] = useState(null);
 
-
-
-    
-    
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getbyUserId/${_id}`)
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getbyUserId/${_id}`);
                 setPosts(response.data.data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
+            } catch (error) {
+                console.error('Error fetching posts:', error.message);
+                setError('Failed to fetch posts. Please try again later.');
+            }
+        };
         fetchPosts();
     }, [_id]);
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,13 +35,12 @@ const SingleProfile = () => {
 
                 if (response.data) {
                     setData(response.data.data);
-                    console.log('Data:', response.data.data);
                 } else {
-                    setData(null);
-                    console.error('Failed to fetch user:', response.data.message);
+                    setError('User not found');
                 }
             } catch (error) {
                 console.error('Error fetching user:', error);
+                setError('Failed to fetch user. Please try again later.');
             }
         };
 
@@ -52,54 +49,50 @@ const SingleProfile = () => {
 
     const handleEdit = () => {
         setEditMode(true);
-        // Initialize edited data with the current data
         setEditedData({ ...data });
     };
 
     const handleSave = async () => {
         try {
-            // Initialize form data
             const formData = new FormData();
-    
-            // Add updated user data to form data
             formData.append('name', editedData.name);
             formData.append('bio', editedData.bio);
             formData.append('email', editedData.email);
             formData.append('phone', editedData.phone);
-    
-            // Check if new image is selected
+
             if (newImage) {
-                // Add new image to form data
                 formData.append('image', newImage);
             }
-    
-            // Send PUT request to update user data and image
-            const response = await axios.put(`${process.env.REACT_APP_BACKEND}/user/update/${_id}`, formData);
-    
-            // Check if request was successful
+
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND}/user/updateProfile/${_id}`, formData, {
+                withCredentials: true,
+            });
+
             if (response.status === 200) {
-                // Update local state with edited data
                 setData(editedData);
                 setEditMode(false);
+                setShowUpdateSuccessPopup(true);
             } else {
-                // Handle error if request fails
-                console.error('Error saving edited data:', response.statusText);
+                setError('Error saving edited data.');
             }
         } catch (error) {
-            // Handle any network or server errors
-            console.error('Error saving edited data:', error);
+            console.error('Error saving edited data:', error.message);
+            setError('Error saving edited data. you are not authorized.');
+            if (error.response && error.response.status === 401) {
+                setShowUnauthorizedPopup(true);
+            }
         }
     };
-    
 
     const handleDelete = async () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this profile?');
         if (confirmDelete) {
             try {
                 await axios.delete(`${process.env.REACT_APP_BACKEND}/user/delete/${_id}`);
-                window.location.href = '/profil'; 
+                window.location.href = '/profil';
             } catch (error) {
-                console.error('Error deleting profile:', error);
+                console.error('Error deleting profile:', error.message);
+                setError('Error deleting profile. Please try again later.');
             }
         }
     };
@@ -116,10 +109,12 @@ const SingleProfile = () => {
         setNewImage(e.target.files[0]);
     };
 
-    
 
     return (
         <section>
+            {error && <div className={style.popup}><h2>{error}</h2></div>}
+            {showUnauthorizedPopup && <div className={style.popup}><h2>You are not authorized.</h2></div>}
+            {showUpdateSuccessPopup && <div className={style.popup}><h2>Profile updated successfully.</h2></div>}
             <article className={style.about}>
                 <div className={style.image}>
                     {editMode ? (

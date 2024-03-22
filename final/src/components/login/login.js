@@ -6,13 +6,13 @@ import axios from 'axios'
 import { AuthContext } from '../../context/authContext';
 
 const Login = () => {
-  const [showPopup, setShowPopup] = useState(false);
 
+  const [showPopup, setShowPopup] = useState(false);
     const {setUser, fetchUserData, fetchUserDataone ,user } = useContext(AuthContext)
     const navigate = useNavigate();
     const { apiCall } = useApi();
     const [isPending, setIsPending] = useState(false);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -73,23 +73,26 @@ const Login = () => {
             },
           });
           setUser(res.token.data.role);
-          console.log("user:", user);
+          setUser(res.token.data)
           console.log("role", res.token.data.role);
+          console.log("user", res.token.data);
 
           // fetchUserData();
           fetchUserDataone();
           
           console.log('loged successfule');
-
+          setShowPopup(true);
           setIsPending(false);
-          setShowPopup(true)
           
-          if (res.token.data.role === "admin") {
-            navigate("/dashboard");
-          } else if (res.token.data.role === "user") {
-            navigate("/");
-        }
-        } 
+          
+          setTimeout(() => {
+            if (res.token.data.role === "admin") {
+                navigate("/dashboard");
+            } else if (res.token.data.role === "user") {
+                navigate("/");
+            }
+        }, 1000); 
+    } 
         catch (error) {
           if (error.response && error.response.data && error.response.data.errors) {
             const { errors } = error.response.data;
@@ -170,6 +173,14 @@ const Login = () => {
                 </Link>
             </div>
             </article>
+            {showPopup && (
+                <div className={style.popup}>
+                    <div className={style.popupContent}>
+                        <h2>Login Successful!</h2>
+                        <button onClick={() => setShowPopup(false)}>Close</button>
+                    </div>
+                </div>
+            )}
             {showPopup && (
                 <div className={style.popup}>
                     <div className={style.popupContent}>

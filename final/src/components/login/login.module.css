@@ -148,13 +148,13 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
 
 }
 .popup {
-    width: 500px;
-    height: 500px;
+   
     position: fixed;
     top: 50px; 
     left: 50%;
+    border-radius: 5px;
     transform: translateX(-50%);
-    background-color: #ffffff;
+    background-color: #000;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -170,19 +170,21 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
 }
 
 .popup button {
-    background-color: #007bff;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    display: none;
 }
 
-.popup button:hover {
+/* .popup button:hover {
     background-color: #0056b3;
-}
+} */
 
 
 @media(max-width:600px) {
+    .title {
+        font-size: 20px;}
     .container {
         min-width: 200px;
     }
@@ -196,4 +198,91 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
         justify-content: space-between;
 
     }
+    .box input {
+      
+        width: 100%;
+        max-width: 200px;
+        padding: 0 10px;
+        font-size: 0.7rem;
+        
+    }
+    .box textarea{
+        width: 100%;
+        max-width: 200px;
+        padding: 10px 10px;
+       
+    }
+    .btn input {
+        padding: 10px 30px;
+        font-size: 15px;
+      
+    }
+    .toggle p{
+       font-size: 10px;
+    }
+    
+    .toggleButton {
+       
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .return i{
+      
+        padding: 10px;
+        font-size: 1rem;
+        
+    }
+}
+@media(max-width:300px) {
+    .title {
+        font-size: 20px;}
+    .container {
+        min-width: 200px;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .box:nth-child(2n) {
+        justify-content: space-between;
+
+    }
+    .box input {
+      
+        width: 100%;
+        max-width: 100px;
+        padding: 0 10px;
+        font-size: 0.7rem;
+        height: 5vh;
+        
+    }
+   
+    .btn input {
+        padding: 5px 10px;
+        font-size: 15px;
+      
+    }
+    .toggle p{
+       font-size: 10px;
+    }
+    
+    .toggleButton {
+       
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .return i{
+      
+        padding: 10px;
+        font-size: 1rem;
+        
+    }
+}
+@media(max-width:1024px) {
+    .box input{
+        height: 6vh;
+    }
+
 }

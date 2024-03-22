@@ -1,12 +1,16 @@
 import React from 'react'
-import styl from '../assets/Loading_icon.gif'
-import style from './loading.module.css'
+import loading from '../assets/loading.gif'
 
 const LoadingPage = ()=>{
     return(
-        <div className={style.loading}>
-            <img src={styl} alt='loading page'/>
-          
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh', 
+            
+        }}>
+            <img src={loading} alt='Loading...' style={{width:'5%'}}></img>
         </div>
     )
 }

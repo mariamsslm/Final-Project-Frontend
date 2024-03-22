@@ -9,7 +9,6 @@ import LoadingPage from './pages/loadingPage';
 
 
 
-const queryClient = new QueryClient();
 
 
  function App() {
@@ -44,12 +43,11 @@ const queryClient = new QueryClient();
     return <LoadingPage />;
   }
   return (
-    <QueryClientProvider client={queryClient}>
+    
       
       <div className="App">
         <AppRoutes />
       </div>
-    </QueryClientProvider>
   );
 }
 

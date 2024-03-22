@@ -96,12 +96,17 @@ left:37px
 .actions {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 }
-
+.actions .icon{
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
 .actions p{
-    margin-left:10px ;
+    margin-left:11px ;
     font-size: 1rem;
     font-weight: 500;
     border: white;
@@ -249,9 +254,14 @@ color: white;
         margin-right: 10px;
         object-fit: cover;
     }
+    .actions .icon{
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
    
     .actions p{
-        margin-left:10px ;
+        margin-left:5px ;
         font-size: 0.5rem;
         font-weight: 500;
         border: white;
@@ -310,9 +320,14 @@ color: white;
         margin-right: 10px;
         object-fit: cover;
     }
+    .actions .icon{
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
    
     .actions p{
-        margin-left:10px ;
+        margin-left:5px ;
         font-size: 0.5rem;
         font-weight: 500;
         border: white;
@@ -360,6 +375,9 @@ color: white;
         cursor: pointer;
         text-align: start;
         font-size: 12px;
+    }
+    .content input{
+        font-size: 10px;
     }
 }
 
