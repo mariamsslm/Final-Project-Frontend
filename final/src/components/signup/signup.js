@@ -13,7 +13,7 @@ const Signup = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState('admin');
+    const [role, setRole] = useState('user');
     const [bio, setBio] = useState("");
     const [phone, setPhone] = useState("");
     const [image, setImage] = useState("");

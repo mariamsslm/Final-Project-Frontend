@@ -155,17 +155,16 @@ box-shadow:  2px 2px 2px 2px rgb(28, 28, 28);
     position: fixed;
     top: 50px; 
     left: 50%;
-    transform: translateX(-50%);
-    background-color: #000;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+    background-color: #ffa343;
     padding: 20px;
     z-index: 999;
 }
 
 .popupContent {
     text-align: center;
+    color: #000;
 }
 
 .popup h2 {

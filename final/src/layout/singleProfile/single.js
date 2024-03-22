@@ -3,6 +3,7 @@ import style from '../../layout/singleProfile/single.module.css';
 import { useParams } from 'react-router-dom';
 import FacebookPost from '../../components/facebook/facebook';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SingleProfile = () => {
     const { _id } = useParams();
@@ -14,6 +15,15 @@ const SingleProfile = () => {
     const [showUnauthorizedPopup, setShowUnauthorizedPopup] = useState(false);
     const [showUpdateSuccessPopup, setShowUpdateSuccessPopup] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true); // State to track loading status
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+    const [showUnauthorizedDeletePopup, setShowUnauthorizedDeletePopup] = useState(false);
+    const [showDeleteSuccessPopup, setShowDeleteSuccessPopup] = useState(false);
+
+    const handleDeleteClick = () => {
+        setShowConfirmationModal(true);
+    };
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -72,26 +82,46 @@ const SingleProfile = () => {
                 setData(editedData);
                 setEditMode(false);
                 setShowUpdateSuccessPopup(true);
+                setTimeout(() => {
+                    setShowUpdateSuccessPopup(false);
+                    navigate(`/user/${_id}`);
+                }, 1000);
             } else {
                 setError('Error saving edited data.');
             }
         } catch (error) {
             console.error('Error saving edited data:', error.message);
-            setError('Error saving edited data. you are not authorized.');
-            if (error.response && error.response.status === 401) {
-                setShowUnauthorizedPopup(true);
-            }
+            setError('Error saving edited data. You are not authorized.');
+            setShowUnauthorizedPopup(true);
+            setTimeout(() => {
+                setShowUnauthorizedPopup(false);
+                setEditMode(false);
+            }, 1000);
         }
     };
 
-    const handleDelete = async () => {
-        const confirmDelete = window.confirm('Are you sure you want to delete this profile?');
-        if (confirmDelete) {
-            try {
-                await axios.delete(`${process.env.REACT_APP_BACKEND}/user/delete/${_id}`);
-                window.location.href = '/profil';
-            } catch (error) {
-                console.error('Error deleting profile:', error.message);
+    const handleConfirmDelete = async () => {
+        try {
+            await axios.delete(`${process.env.REACT_APP_BACKEND}/user/deleteUserAccount/${_id}`, {
+                withCredentials: true,
+            });
+            setShowConfirmationModal(false);
+            setShowDeleteSuccessPopup(true);
+            setTimeout(() => {
+                setShowDeleteSuccessPopup(false);
+                navigate('/profil');
+            }, 1000);
+        } catch (error) {
+            console.error('Error deleting profile:', error.message);
+            if (error.response && error.response.status === 403) {
+                setError("You don't have access to delete this profile.");
+                setShowConfirmationModal(false)
+                setShowUnauthorizedDeletePopup(true);
+                setTimeout(() => {
+                    
+                    setShowUnauthorizedDeletePopup(false);
+                }, 1000);
+            } else {
                 setError('Error deleting profile. Please try again later.');
             }
         }
@@ -109,12 +139,14 @@ const SingleProfile = () => {
         setNewImage(e.target.files[0]);
     };
 
-
     return (
         <section>
-            {error && <div className={style.popup}><h2>{error}</h2></div>}
-            {showUnauthorizedPopup && <div className={style.popup}><h2>You are not authorized.</h2></div>}
+            {showUnauthorizedPopup && <div className={style.popup}><h2>You don't have access to edit this profile!</h2></div>}
             {showUpdateSuccessPopup && <div className={style.popup}><h2>Profile updated successfully.</h2></div>}
+            {showDeleteSuccessPopup && <div className={style.popup}><h2>Profile deleted successfully.</h2></div>}
+{showUnauthorizedDeletePopup && <div className={style.popup}><h2>You don't have access to delete this profile!</h2></div>}
+
+           
             <article className={style.about}>
                 <div className={style.image}>
                     {editMode ? (
@@ -172,12 +204,13 @@ const SingleProfile = () => {
                         ) : (
                             <>
                                 <i className="ri-pencil-line" onClick={handleEdit}></i>
-                                <i className="ri-delete-bin-line" onClick={handleDelete}></i>
+                                <i className="ri-delete-bin-line" onClick={handleDeleteClick}></i>
                             </>
                         )}
                     </div>
                 </div>
             </article>
+
            
             <div className={style.posts}>
                 
@@ -185,6 +218,18 @@ const SingleProfile = () => {
                 <FacebookPost key={index} post={post} />
             ))}
         </div>
+
+        {showConfirmationModal && (
+            <div className={style.modal}>
+                <div className={style.modalContent}>
+                    <h2>Are you sure to delete this profile?</h2>
+                    <div className={style.modalButtons}>
+                        <button onClick={handleConfirmDelete}>Yes</button>
+                        <button onClick={() => setShowConfirmationModal(false)}>No</button>
+                    </div>
+                </div>
+            </div>
+        )}
            
             
             
