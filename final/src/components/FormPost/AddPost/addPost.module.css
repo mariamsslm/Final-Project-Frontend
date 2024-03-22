@@ -72,8 +72,8 @@ section{
         top: 50px; 
         left: 50%;
         transform: translateX(-50%);
-        background-color: #000;
-        border: 1px solid #ccc;
+        background-color: #ffa343;
+        
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -82,6 +82,7 @@ section{
     
     .popupContent {
         text-align: center;
+        color: #000;
     }
     
     .popup h2 {

@@ -16,6 +16,15 @@ const FacebookPost = ({ post }) => {
   const [imageFile, setImageFile] = useState(null);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate(); 
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+
+  const [showUnauthorizedDeletePopup, setShowUnauthorizedDeletePopup] = useState(false);
+    const [showDeleteSuccessPopup, setShowDeleteSuccessPopup] = useState(false);
+
+    const handleDeleteClick = () => {
+      setShowConfirmationModal(true);
+  };
+
 
 
   const toggleLike = async () => {
@@ -52,10 +61,23 @@ const FacebookPost = ({ post }) => {
       withCredentials: true
     });
     setDeleted(true);
-    setShowMenu(false); 
-    navigate('/posts');
+    setShowMenu(false);
+    setShowConfirmationModal(false) 
+    setShowDeleteSuccessPopup(true)
+    
+            setTimeout(() => {
+                setShowDeleteSuccessPopup(false);
+               
+            
+            }, 1000);
   } catch (error) {
     console.error("Error deleting post:", error);
+    setShowConfirmationModal(false)
+    setShowUnauthorizedDeletePopup(true);
+                setTimeout(() => {
+                  
+                    setShowUnauthorizedDeletePopup(false);
+                }, 1000);
   }
 };
 
@@ -129,10 +151,16 @@ const FacebookPost = ({ post }) => {
   if (deleted) {
     return null;
   }
+  
 
   return (
+  <>
+    {showDeleteSuccessPopup && <div className={style.popup}><h2>Post deleted successfully.</h2></div>}
+    {showUnauthorizedDeletePopup && <div className={style.popup}><h2>You don't have access to delete this post</h2></div>}
+    
     
       <div className={style.post}>
+        
         <div className={style.header}>
           <img
             src={`${process.env.REACT_APP_BACKEND}/images/${post.userID?.image}`}
@@ -150,7 +178,7 @@ const FacebookPost = ({ post }) => {
             {showMenu && (
               <div className={style.dropdown}>
                 <button onClick={handleEdit}>Edit</button>
-                <button onClick={handleDelete}>Delete</button>
+                <button onClick={ handleDeleteClick}>Delete</button>
               </div>
             )}
           </div>
@@ -194,8 +222,20 @@ const FacebookPost = ({ post }) => {
             )}
           </div>
         </div>
+        {showConfirmationModal && (
+            <div className={style.modal}>
+                <div className={style.modalContent}>
+                    <h2>Are you sure to delete this post?</h2>
+                    <div className={style.modalButtons}>
+                        <button onClick={handleDelete}>Yes</button>
+                        <button onClick={() => setShowConfirmationModal(false)}>No</button>
+                    </div>
+                </div>
+            </div>
+        )}
         
       </div>
+      </>
    
   );
 };
