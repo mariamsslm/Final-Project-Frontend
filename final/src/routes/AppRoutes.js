@@ -55,9 +55,16 @@ function AppRoutes() {
 
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
-        <Route path='/add' element={<PostForm/>} />
+        
         <Route path="/nav" element={<Navbar/>}></Route>
         {/* <Route path="/dodo" element={<Overview/>}></Route> */}
+
+
+        {/* protected route */}
+        <Route path='/add' element={
+        <ProtectedRoute>
+          <PostForm/>
+          </ProtectedRoute>} />
 
 
         
