@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import style from "../facebook/facebook.module.css";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 const FacebookPost = ({ post }) => {
   // const [showPopup, setShowPopup] = useState(false);
+  const [deleted, setDeleted] = useState(false);
   const [editedPost, setEditedPost] = useState({ ...post });
   const [likesInfo, setLikesInfo] = useState(null);
   const [error, setError] = useState(null);
@@ -14,6 +15,8 @@ const FacebookPost = ({ post }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate(); 
+
 
   const toggleLike = async () => {
     try {
@@ -41,21 +44,24 @@ const FacebookPost = ({ post }) => {
     }
   };
 
+
+
   const handleDelete = async () => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this post?"
-    );
-    if (confirmDelete) {
-      try {
-        await axios.delete(
-          `${process.env.REACT_APP_BACKEND}/post/deleteUserPost/${post._id}`
-        );
-        window.location.href = "/posts";
-      } catch (error) {
-        console.error("Error deleting post:", error);
-      }
-    }
-  };
+  try {
+    await axios.delete(`${process.env.REACT_APP_BACKEND}/post/deleteUserPost/${post._id}`, {
+      withCredentials: true
+    });
+    setDeleted(true);
+    setShowMenu(false); 
+    navigate('/posts');
+  } catch (error) {
+    console.error("Error deleting post:", error);
+  }
+};
+
+
+
+
 
   useEffect(() => {
     console.log(user);
@@ -85,7 +91,7 @@ const FacebookPost = ({ post }) => {
       formData.append("image", imageFile);
 
       await axios.put(
-        `${process.env.REACT_APP_BACKEND}/post/edit/${post._id}`,
+        `${process.env.REACT_APP_BACKEND}/post/post/${post._id}`,
         formData,
         {
           withCredentials: true,
@@ -118,6 +124,11 @@ const FacebookPost = ({ post }) => {
   useEffect(() => {
     fetchLikesInfo(); // Call the fetchLikesInfo function when the component mounts or post ID changes
   }, [post._id]);
+
+
+  if (deleted) {
+    return null;
+  }
 
   return (
     

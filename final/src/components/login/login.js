@@ -130,7 +130,7 @@ const Login = () => {
         <section className={style.container}>
           <div className={style.return}>
             <Link to='/'>
-              <i class="ri-expand-left-fill" >Home</i>
+              <i className="ri-expand-left-fill" >Home</i>
                 
             </Link>
             </div>
