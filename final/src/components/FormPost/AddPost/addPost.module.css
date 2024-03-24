@@ -71,11 +71,9 @@ section{
         position: fixed;
         top: 50px; 
         left: 50%;
+        border-radius: 5px;
         transform: translateX(-50%);
         background-color: #ffa343;
-        
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
         z-index: 999;
     }
@@ -86,9 +84,8 @@ section{
     }
     
     .popup h2 {
-        margin-bottom: 10px;
+        margin: auto;
     }
-    
     .popup button {
         color: #ffffff;
         border: none;
@@ -113,6 +110,13 @@ section{
             border-radius: 5px;
             transition: all .50s ease;
             cursor: pointer;
+        }
+        .popup{
+            padding: 10px;
+        }
+        .popup h2 {
+            margin: auto;
+            font-size: 1rem;
         }
 
     }
@@ -165,6 +169,13 @@ section{
     color: #fff;
     background-color: #000;
     border-radius: 5px;
+}
+.popup{
+    padding: 8px;
+}
+.popup h2 {
+    margin: auto;
+    font-size: 0.7rem;
 }
 
     }

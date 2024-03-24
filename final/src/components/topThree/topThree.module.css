@@ -11,10 +11,9 @@ margin: auto;
     font-weight: 800;
 }
 .content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px , auto));
-    align-items: center;
-    gap:3rem;
+    display: flex;
+    justify-content: space-between;
+    
     margin-top: 5rem;
 }
 
