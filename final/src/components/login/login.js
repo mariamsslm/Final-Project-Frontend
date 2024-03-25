@@ -181,14 +181,7 @@ const Login = () => {
                     </div>
                 </div>
             )}
-            {showPopup && (
-                <div className={style.popup}>
-                    <div className={style.popupContent}>
-                        <h2>Login Successful!</h2>
-                        <button onClick={() => setShowPopup(false)}>Close</button>
-                    </div>
-                </div>
-            )}
+           
           
         </section>
     );

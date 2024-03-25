@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import style from './Sidebar.module.css'
 import { NavLink , useLocation} from 'react-router-dom'
+import { AuthContext } from '../../../context/authContext'
 
 
 const Overview=()=>{
+    const { logout } = useContext(AuthContext)
     const location = useLocation();
+    
     return(
         <div className={style.sidebar}>
             <ul>
@@ -24,7 +27,7 @@ const Overview=()=>{
                        <p>Posts</p></NavLink>
                 </li>
                 <li>
-                <NavLink exact to='/' className={location.pathname === "/" ? style.active__link : ""}>
+                <NavLink exact to='/' className={location.pathname === "/" ? style.active__link : ""} onClick={logout}>
                     <i class="ri-logout-box-r-line"></i>                      
                      <p>Logout</p></NavLink>
                 </li>

@@ -51,13 +51,16 @@
     padding: 20px ;
     border-radius: 5px;
     width: 100%;
+    color: #fff;
+   
 }
 
 .chart h2{
     margin-bottom: 10px;
-    color: #666;
+    color: #fff;
     text-align: center;
 }
+
 @media (max-width:1115px){
     .main{
         left: 60px;
