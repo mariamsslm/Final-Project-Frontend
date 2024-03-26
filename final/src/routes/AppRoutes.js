@@ -16,12 +16,13 @@ import EditForm from '../components/FormPost/EditPost/editPost'
 import ProtectedRoute from '../routes/potectedRoute'
 import AllProfile from '../pages/AllProfiles'
 import LayoutWithSidebar from './withSideBar'
-import PostTable from '../components/dashboard/tableUser' 
+import PostTable from '../components/dashboard/postTable/tableUser' 
 import UserTable from '../components/dashboard/user/userTable'
 import Navbar from '../components/Navbar/navbar'
 import Overview from '../components/dashboard/overview/overview'
 // import  UserTable from '../components/dashboard/tableUser'
 import FacebookSection from '../components/facebook/facebookSection'
+import NotFound from '../pages/NotFound/NotFound'
 
 
 function AppRoutes() {
@@ -56,8 +57,12 @@ function AppRoutes() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         
-        <Route path="/nav" element={<Navbar/>}></Route>
+        <Route path="/notFound" element={<NotFound/>}></Route>
+
         {/* <Route path="/dodo" element={<Overview/>}></Route> */}
+
+
+
 
 
         {/* protected route */}
@@ -76,36 +81,39 @@ function AppRoutes() {
         <Route
         path="/dashboard"
         element={
-          
+           <ProtectedRoute>
             <LayoutWithSidebar>
               {" "}
               <Overview/>
              
             </LayoutWithSidebar>
+            </ProtectedRoute>
           
         }
       ></Route>
         <Route
         path="/postTable"
         element={
-          
+          <ProtectedRoute>
             <LayoutWithSidebar>
               {" "}
               <PostTable/>
              
             </LayoutWithSidebar>
+            </ProtectedRoute>
           
         }
       ></Route>
       <Route
         path="/userTable"
         element={
-          
+            <ProtectedRoute>
             <LayoutWithSidebar>
               {" "}
               <UserTable/>
              
             </LayoutWithSidebar>
+            </ProtectedRoute>
           
         }
       ></Route>

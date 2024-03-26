@@ -2,12 +2,15 @@ import React, { useState , useEffect } from 'react';
 import axios from 'axios'
 import style from '../gallery/gallery.module.css';
 import imagee from '../../assets/item1.jpg'
+import loading from '../../assets/loading.gif'
+
 
 
 const Gallery = () => {
     const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
+    const [isLoading, setIsLoading] = useState(true)
 
     const handleClick = (index) => {
         setCurrentIndex(index);
@@ -33,6 +36,7 @@ const Gallery = () => {
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getall`);
                 setImages(response.data.data);
                 console.log(response.data.data);
+                setIsLoading(false)
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -47,6 +51,10 @@ const Gallery = () => {
             <div className={style.header}>
                 <h3>Photo<span>Gallery</span></h3>
             </div>
+            {isLoading ? (<div>
+            <img src={loading} alt='....Loading' style={{width:'100px'}}></img>
+            
+        </div>):(
             <div className={style.box}>
                 <div className={style.images}>
                    
@@ -61,6 +69,7 @@ const Gallery = () => {
                     ))}
                 </div>
             </div>
+            )}
 
             {showPopup && (
                 <div className={style.popup}>

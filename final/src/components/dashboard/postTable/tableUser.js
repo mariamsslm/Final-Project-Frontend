@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import style from '../dashboard/table.module.css'; 
+import style from '../postTable/table.module.css'; 
 import axios from 'axios';
 
 const PostTable = () => {

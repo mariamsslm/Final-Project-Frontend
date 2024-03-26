@@ -209,7 +209,7 @@ const FacebookPost = ({ post }) => {
             </>
           )}
         </div>
-        <div className={style.actions}>
+        {/* <div className={style.actions}>
           <i
             className={`ri-heart-fill ${isLiked ? style.redHeart : ""} ${style.icon}`}
             // style={{ fontSize: "2rem", fontWeight: 500, cursor: "pointer" }}
@@ -221,7 +221,7 @@ const FacebookPost = ({ post }) => {
               <p className={style.liked}>{likesInfo.numberOfLikes}</p>
             )}
           </div>
-        </div>
+        </div> */}
         {showConfirmationModal && (
             <div className={style.modal}>
                 <div className={style.modalContent}>

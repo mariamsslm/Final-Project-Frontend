@@ -164,7 +164,7 @@ const Signup = () => {
                         </div>
                     </div>
                     <div className={style.btn}>
-                        <input type='submit' value='Singup' disabled={loading} />
+                        <input type='submit' value='Sing up' disabled={loading} />
                     </div>
                 </form>
                

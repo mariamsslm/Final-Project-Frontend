@@ -1,9 +1,21 @@
 /* table.module.css */
 
+
 .container {
-    width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
+    position: relative;
+    width: calc(100% - 260px);
+    left: 260px;
+    
+    height: 100vh;
+    
+      
+}
+.content{
+    width: 80%;
+    margin: auto auto;
+   
+   
+
 }
 .picture {
     width: 50px;
@@ -11,14 +23,38 @@
     border-radius: 50%;
     margin-right: 10px;
 }
-
-table {
-    width: 50%;
-    border-collapse: collapse;
+.buttons {
+    display: flex;
+    justify-content: flex-end; 
+    padding-top: 50px; 
 }
-.picture{
 
+.buttons button{
+    margin: 0 5px;
+    display: inline-block;
+    padding: 13px 40px;
+    background: #ffa343;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all .50s ease;
+    cursor: pointer;
 }
+.buttons button:hover{
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.table {
+    
+   
+  background: #1a1818;
+  width: 100%;
+}
+
 h2{
     margin-top: 20px;
 }
@@ -29,9 +65,15 @@ h2{
     text-align: left;
     border-bottom: 1px solid #555252;
 }
+.table td i{
+    padding: 0 9px;
+}
+.table td i:hover{
+    color: #ffa343;
+}
 
 .table th {
-    background-color: #1a1818;
+    background-color: #ffa343;
     font-weight: bold;
 }
 

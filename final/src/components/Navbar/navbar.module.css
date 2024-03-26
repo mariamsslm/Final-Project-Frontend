@@ -126,7 +126,7 @@ header.sticky{
 
 }
 
-@media(max-width:940px){
+@media(max-width:960px){
     header{
         padding:17px 7% ;
     }
@@ -162,7 +162,7 @@ header.sticky{
 
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
     header{
         padding:10px 4% ;
     }
@@ -200,7 +200,7 @@ header.sticky{
     }
 
 }
-@media(max-width:665px)and (min-width:539px){
+@media(max-width:724px){
     .logo{
         font-size: 13px;
     }
@@ -219,7 +219,7 @@ header.sticky{
     }
 
 }
-@media(max-width:540px) {
+@media(max-width:560px) {
 
     .logo{
         font-size: 20px;

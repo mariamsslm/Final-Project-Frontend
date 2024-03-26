@@ -3,11 +3,15 @@ import style from '../profileHome/profileHome.module.css';
 import { Link } from 'react-router-dom';
 // import Slider from "react-slick";
 import axios from 'axios';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import loading from '../../assets/loading.gif'
+
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 const ProfileHome = () => {
     const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Introducing loading state
+
     // const settings = {
     //     dots: true,
     //     infinite: true,
@@ -24,6 +28,7 @@ const ProfileHome = () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND}/user/getall`);
                 setUsers(response.data.Users);
+                setIsLoading(false);
 
                 console.log(response.data.Users);
             } catch (error) {
@@ -37,6 +42,10 @@ const ProfileHome = () => {
     return (
         <section className={style.profile}>
             <h2 className={style.text}>Artists</h2>
+            {isLoading ? (<div>
+            <img src={loading} alt='....Loading' style={{width:'100px'}}></img>
+            
+        </div> ):(
             <div className={style.content}>
                 {/* <Slider {...settings}> */}
                     {users.map((user, index) => (
@@ -49,6 +58,7 @@ const ProfileHome = () => {
                     ))}
                 {/* </Slider> */}
             </div>
+            )}
         </section>
     );
 };

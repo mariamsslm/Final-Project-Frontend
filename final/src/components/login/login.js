@@ -161,7 +161,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className={style.btn}>
-                        <input type='submit' value='Signin' />
+                        <input type='submit' value='Sign in' />
                     </div>
                 </form>
                 <div className={style.toggle}>

@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import FacebookPost from '../../components/facebook/facebook';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import loading from '../../assets/loading.gif'
+
 
 const SingleProfile = () => {
     const { _id } = useParams();
@@ -16,7 +18,7 @@ const SingleProfile = () => {
     const [showUpdateSuccessPopup, setShowUpdateSuccessPopup] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(true); // State to track loading status
+    const [isLoading, setIsLoading] = useState(true); 
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [showUnauthorizedDeletePopup, setShowUnauthorizedDeletePopup] = useState(false);
     const [showDeleteSuccessPopup, setShowDeleteSuccessPopup] = useState(false);
@@ -30,6 +32,7 @@ const SingleProfile = () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND}/post/getbyUserId/${_id}`);
                 setPosts(response.data.data);
+                
             } catch (error) {
                 console.error('Error fetching posts:', error.message);
                 setError('Failed to fetch posts. Please try again later.');
@@ -45,6 +48,8 @@ const SingleProfile = () => {
 
                 if (response.data) {
                     setData(response.data.data);
+                    setIsLoading(false)
+                    
                 } else {
                     setError('User not found');
                 }
@@ -145,7 +150,10 @@ const SingleProfile = () => {
             {showUpdateSuccessPopup && <div className={style.popup}><h2>Profile updated successfully.</h2></div>}
             {showDeleteSuccessPopup && <div className={style.popup}><h2>Profile deleted successfully.</h2></div>}
 {showUnauthorizedDeletePopup && <div className={style.popup}><h2>You don't have access to delete this profile!</h2></div>}
-
+           {isLoading ? (<div>
+            <img src={loading} alt='....Loading' style={{width:'100px'}}></img>
+            
+        </div>) :(
            
             <article className={style.about}>
                 <div className={style.image}>
@@ -210,6 +218,7 @@ const SingleProfile = () => {
                     </div>
                 </div>
             </article>
+            )}
 
            
             <div className={style.posts}>
@@ -230,6 +239,10 @@ const SingleProfile = () => {
                 </div>
             </div>
         )}
+         {showUnauthorizedPopup && <div className={style.popup}><h2>You don't have access to edit this profile!</h2></div>}
+            {showUpdateSuccessPopup && <div className={style.popup}><h2>Profile updated successfully.</h2></div>}
+            {showDeleteSuccessPopup && <div className={style.popup}><h2>Profile deleted successfully.</h2></div>}
+{showUnauthorizedDeletePopup && <div className={style.popup}><h2>You don't have access to delete this profile!</h2></div>}
            
             
             
